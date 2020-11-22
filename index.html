@@ -1,0 +1,2092 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+  <meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"37b0d64e9e",applicationID:"112194064"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small Business Bookkeeping Basics | Business.org</title>
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v12.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="It doesn’t take an accounting degree to balance your books. Business.org helps you learn the basics of small business bookkeeping with this beginner’s guide."/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Small Business Bookkeeping Basics | Business.org" />
+<meta property="og:description" content="It doesn’t take an accounting degree to balance your books. Business.org helps you learn the basics of small business bookkeeping with this beginner’s guide." />
+<meta property="og:url" content="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/" />
+<meta property="og:site_name" content="Business.org" />
+<meta property="article:publisher" content="https://www.facebook.com/BusinessDotOrg/" />
+<meta property="article:tag" content="Accounting" />
+<meta property="article:tag" content="Finance" />
+<meta property="article:section" content="Accounting" />
+<meta property="article:published_time" content="2019-12-20T07:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-16T17:04:04+00:00" />
+<meta property="og:updated_time" content="2020-10-16T17:04:04+00:00" />
+<meta property="og:image" content="https://www.business.org/app/uploads/2019/12/two-cafe-employees-working-on-a-laptop.jpg" />
+<meta property="og:image:secure_url" content="https://www.business.org/app/uploads/2019/12/two-cafe-employees-working-on-a-laptop.jpg" />
+<meta property="og:image:width" content="801" />
+<meta property="og:image:height" content="534" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="It doesn’t take an accounting degree to balance your books. Business.org helps you learn the basics of small business bookkeeping with this beginner’s guide." />
+<meta name="twitter:title" content="Small Business Bookkeeping Basics | Business.org" />
+<meta name="twitter:site" content="@businessdotorg" />
+<meta name="twitter:image" content="https://www.business.org/app/uploads/2019/12/two-cafe-employees-working-on-a-laptop.jpg" />
+<meta name="twitter:creator" content="@businessdotorg" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.business.org/#website","url":"https://www.business.org/","name":"Business.org","potentialAction":{"@type":"SearchAction","target":"https://www.business.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/#primaryimage","url":"https://www.business.org/app/uploads/2019/12/two-cafe-employees-working-on-a-laptop.jpg","width":801,"height":534,"caption":"Two people stand at a coffeeshop countertop, one looking at a laptop and the other doing calculations on a piece of paper"},{"@type":"WebPage","@id":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/#webpage","url":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/","inLanguage":"en-US","name":"Small Business Bookkeeping Basics | Business.org","isPartOf":{"@id":"https://www.business.org/#website"},"primaryImageOfPage":{"@id":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/#primaryimage"},"datePublished":"2019-12-20T07:00:00+00:00","dateModified":"2020-10-16T17:04:04+00:00","author":{"@id":"https://www.business.org/#/schema/person/241baa44bbcbb8af17953ef15ac0028c"},"description":"It doesn\u2019t take an accounting degree to balance your books. Business.org helps you learn the basics of small business bookkeeping with this beginner\u2019s guide.","breadcrumb":{"@id":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.business.org/","url":"https://www.business.org/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.business.org/finance/","url":"https://www.business.org/finance/","name":"Finance"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://www.business.org/finance/accounting/","url":"https://www.business.org/finance/accounting/","name":"Accounting"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/","url":"https://www.business.org/finance/accounting/small-business-bookkeeping-basics/","name":"Small-Business Bookkeeping Basics: Here\u2019s What You Need to Know"}}]},{"@type":["Person"],"@id":"https://www.business.org/#/schema/person/241baa44bbcbb8af17953ef15ac0028c","name":"Business.org Staff Writer","image":{"@type":"ImageObject","@id":"https://www.business.org/#authorlogo","url":"https://secure.gravatar.com/avatar/e369faf821b7f47c7edde9732b5fc436?s=96&d=mm&r=g","caption":"Business.org Staff Writer"},"sameAs":[]}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//www.business.org' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='main-css'  href='https://www.business.org/app/themes/coolwhip-child/dist/css/main.css?ver=1605950798' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://www.business.org/wp-json/' />
+<link rel="alternate" type="application/json+oembed" href="https://www.business.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.business.org%2Ffinance%2Faccounting%2Fsmall-business-bookkeeping-basics%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.business.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.business.org%2Ffinance%2Faccounting%2Fsmall-business-bookkeeping-basics%2F&#038;format=xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>  <script>
+    window.SITE = {
+      siteURL: 'https://www.business.org',
+      stylesheetUri: 'https://www.business.org/app/themes/coolwhip-child',
+      templateUri: 'https://www.business.org/app/themes/coolwhip',
+      adminAjax: 'https://www.business.org/wp/wp-admin/admin-ajax.php',
+      postID: 6450,
+      termID: false    };
+  </script>
+  <link rel="icon" type="image/png" href="data:image/png;base64,aHR0cHM6Ly93d3cuYnVzaW5lc3Mub3JnL2FwcC91cGxvYWRzLzIwMjAvMDkvY3JvcHBlZC1mYXZpY29uLnBuZw==" sizes="32x32" ><link rel="icon" type="image/png" href="data:image/png;base64,aHR0cHM6Ly93d3cuYnVzaW5lc3Mub3JnL2FwcC91cGxvYWRzLzIwMjAvMDkvY3JvcHBlZC1mYXZpY29uLnBuZw==" sizes="192x192" ><link rel="shortcut icon" href="https://www.business.org/app/uploads/2020/09/cropped-favicon.png" sizes="196x196"><link rel="apple-touch-icon" href="https://www.business.org/app/uploads/2020/09/cropped-favicon.png" sizes="180x180"><meta name="msapplication-TileImage" content="https://www.business.org/app/uploads/2020/09/cropped-favicon.png"><meta name="msapplication-TileColor" content="#048BAE"><link rel="icon" href="https://www.business.org/app/uploads/2020/09/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.business.org/app/uploads/2020/09/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.business.org/app/uploads/2020/09/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.business.org/app/uploads/2020/09/cropped-favicon-270x270.png" />
+        <!-- Google Tag Manager -->
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5WKH9F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-5WKH9F');</script>
+      <!-- End Google Tag Manager -->
+    </head>
+
+<body class="post-template-default single single-post postid-6450 single-format-standard elementor-default elementor-page elementor-page-6450">
+  <a href="#main-content" class="skip-to-main">skip to main content</a>
+
+  
+  
+  
+<!-- cached 2020-11-20 19:31:42 -->
+<section class="clwp-container">		<div data-elementor-type="header" data-elementor-id="19783" class="elementor elementor-19783 elementor-location-header" data-elementor-settings="[]">
+			<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+					<div class="clwp-row  header-disc  row-padding--default row-margin--none has-background has-background--misc-light-blue"><div class="grid-container grid-container--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="header-disclaimer" class="header-disclaimer component-margin--medium "><div class="text--p-xsmall sc-margin--none header-disclaimer__disclaimer"><p>We <a href="/about/#disclosure">may earn money</a> when you click on our links. </p></div><div class="header-disclaimer__close"><img alt="Icon Close  Dark" class="clwp-icon clwp-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMjQgMi40MTcgMjEuNTgzIDAgMTIgOS41ODMgMi40MTcgMCAwIDIuNDE3IDkuNTgzIDEyIDAgMjEuNTgzIDIuNDE3IDI0IDEyIDE0LjQxNyAyMS41ODMgMjQgMjQgMjEuNTgzIDE0LjQxNyAxMiIvPgo8L3N2Zz4K"/></div></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div></div>
+<!--section start -->
+
+<div class="grid-container grid-container--window-width header-wrap  row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     column-margin--none"><div data-widget="logo" class="logo component-margin--none ">  <div class="logo__image logo__logo">
+    <a  href="/"><img width="198" height="28" data-cached="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTgiIGhlaWdodD0iMjgiPjwvc3ZnPg==" data-src="https://www.business.org/app/uploads/2020/08/dark-1.svg" data-large="https://www.business.org/app/uploads/2020/08/dark-1.svg" class="logo_image lazy-image" alt="" /></a>  </div>
+  <div class="logo__menu-button">
+    <button type="button" class="clwp-nav-mobile-button" id='clwp-nav-mobile-button' aria-label="Toggle the menu">
+      <img alt="Menu  Dark" class="clwp-icon clwp-nav-mobile-button__open-menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLDIwIEwyNCwyMCBMMjQsMTcuMzMzMzMzMyBMMCwxNy4zMzMzMzMzIEwwLDIwIFogTTAsMTMuMzMzMzMzMyBMMjQsMTMuMzMzMzMzMyBMMjQsMTAuNjY2NjY2NyBMMCwxMC42NjY2NjY3IEwwLDEzLjMzMzMzMzMgWiBNMCw0IEwwLDYuNjY2NjY2NjcgTDI0LDYuNjY2NjY2NjcgTDI0LDQgTDAsNCBaIi8+Cjwvc3ZnPgo="/>
+      <img alt="Close  Dark" class="clwp-icon clwp-nav-mobile-button__close-menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMjQgMi40MTcgMjEuNTgzIDAgMTIgOS41ODMgMi40MTcgMCAwIDIuNDE3IDkuNTgzIDEyIDAgMjEuNTgzIDIuNDE3IDI0IDEyIDE0LjQxNyAyMS41ODMgMjQgMjQgMjEuNTgzIDE0LjQxNyAxMiIvPgo8L3N2Zz4K"/>    </button>
+  </div>
+  </div><div data-widget="menu" class="menu component-margin--none "><nav id="clwp-menu" class="clwp-nav clwp-nav--align-center clwp-nav--width-window"><div class='clwp-nav__before'></div><div data-elementor-type="menu" class="clwp-nav__nav-item"><a class="clwp-nav__nav-parent" href="https://www.business.org/finance/loans/best-crowdfunding-sites-for-startups/">Start<img alt="Icon Caret Right  Dark" class="clwp-icon menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMi44MiA1IDEyIDEzLjY1MyAyMS4xOCA1IDI0IDcuNjY0IDEyIDE5IDAgNy42NjQiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMiAxMikiLz4KPC9zdmc+Cg=="/></a>
+          <div class="clwp-nav__nav-contents">
+            <div class="clwp-nav__nav-contents-buffer"><div class="clwp-nav__nav-contents-container">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Business preparation</strong></p>
+<p><a href="/finance/loans/best-crowdfunding-sites-for-startups/">Best Crowdfunding Sites for Startups </a></p>
+<p><a href="/finance/loans/business-startup-costs/">Business Startup Costs</a></p>
+<p><a href="/finance/loans/ways-to-self-finance-your-business/">Ways to Self-Finance Your Business</a></p>
+<p><a href="/finance/loans/how-to-choose-a-business-loan/">How to Choose a Business Loan </a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Business resources</strong></p>
+<p><a href="/finance/loans/best-small-business-loans/">Best Small Business Loans</a></p>
+<p><a href="/finance/accounting/small-business-bookkeeping-basics/">Best Small Business Bookkeeping Basics</a></p>
+<p><a href="/finance/banking/best-online-bank-for-small-business/">Best Online Banks for Small Business</a></p>
+<p><a href="/software/point-of-sale/the-best-mobile-credit-card-reader-apps-for-your-small-business/">Best Mobile Credit Card Readers</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Learn more</strong></p>
+<p><a href="/finance/loans/business-loan-requirements/">Business Loan Requirements</a></p>
+<p><a href="/finance/accounting/how-to-effectively-manage-your-companys-profit-and-loss/">How to Effectively Manage Your Company’s Profit and Loss</a></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div></div>
+          </div>
+        </div><div data-elementor-type="menu" class="clwp-nav__nav-item"><a class="clwp-nav__nav-parent" href="https://www.business.org/finance/loans/best-small-business-loans/">Grow<img alt="Icon Caret Right  Dark" class="clwp-icon menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMi44MiA1IDEyIDEzLjY1MyAyMS4xOCA1IDI0IDcuNjY0IDEyIDE5IDAgNy42NjQiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMiAxMikiLz4KPC9zdmc+Cg=="/></a>
+          <div class="clwp-nav__nav-contents">
+            <div class="clwp-nav__nav-contents-buffer"><div class="clwp-nav__nav-contents-container">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Expand your influence</strong></p>
+<p><a href="/finance/loans/best-small-business-loans/">Best Small Business Loans </a></p>
+<p><a href="/finance/cost-management/best-inventory-management-software/">Best Inventory Management Software </a></p>
+<p><a href="/software/point-of-sale/best-pos-systems-for-business/">Best POS Systems for Business</a></p>
+<p><a href="/finance/accounting/best-small-business-accounting-software/">Best Small Business Accounting Software </a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Expand your space</strong></p>
+<p><a href="/finance/loans/commercial-real-estate-loans/">Best Commercial Real Estate Loans</a></p>
+<p><a href="/finance/loans/types-of-commercial-loans/">Types of Commercial Loans </a></p>
+<p><a href="/finance/loans/commercial-loan-rates/">Commercial Loan Rates</a></p>
+<p><a href="/finance/loans/best-bad-credit-business-loans/">Best Bad Credit Business Loans</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Learn more</strong></p>
+<p><a href="/finance/loans/business-loan-requirements/">Business Loan Requirements </a></p>
+<p><a href="/finance/loans/how-do-business-loans-work/">How do Business Loans Work? </a></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div></div>
+          </div>
+        </div><div data-elementor-type="menu" class="clwp-nav__nav-item"><a class="clwp-nav__nav-parent" href="/finance/loans/">Financing<img alt="Icon Caret Right  Dark" class="clwp-icon menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMi44MiA1IDEyIDEzLjY1MyAyMS4xOCA1IDI0IDcuNjY0IDEyIDE5IDAgNy42NjQiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMiAxMikiLz4KPC9zdmc+Cg=="/></a>
+          <div class="clwp-nav__nav-contents">
+            <div class="clwp-nav__nav-contents-buffer"><div class="clwp-nav__nav-contents-container">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/loans/"><strong>Business loan basics</strong></a></p>
+<p><a href="/finance/loans/small-business-loans/">Ultimate Guide to Small Business Loans </a></p>
+<p><a href="/finance/loans/best-crowdfunding-sites-for-startups/">Best Crowdfunding Sites for Startups</a></p>
+<p><a href="/finance/loans/best-startup-business-loans/">Best Startup Business Loans</a></p>
+<p><a href="/finance/loans/best-small-business-funding-options/">Best Small Business Funding Options</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/banking/"><strong>Business banking basics</strong></a></p>
+<p><a href="/finance/banking/ultimate-guide-to-banking/">Ultimate Guide to Small Business Banking </a></p>
+<p><a href="/finance/banking/best-online-bank-for-small-business/">Best Online Banks for Small Business</a></p>
+<p><a href="/finance/banking/best-bank-for-small-business/">Best Banks for Small Business</a></p>
+<p><a href="/finance/banking/types-of-business-bank-accounts/">Types of Business Bank Accounts</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Learn more</strong></p>
+<p><a href="/finance/loans/how-to-get-a-business-loan/">How to Get a Business Loan</a></p>
+<p><a href="/finance/loans/best-small-business-loans-for-women/">Best Small Business Loans for Women</a></p>
+<p><a href="/finance/loans/business-loan-calculator/">Business Loan Calculator</a></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div></div>
+          </div>
+        </div><div data-elementor-type="menu" class="clwp-nav__nav-item"><a class="clwp-nav__nav-parent" href="/finance/accounting/">Accounting<img alt="Icon Caret Right  Dark" class="clwp-icon menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMi44MiA1IDEyIDEzLjY1MyAyMS4xOCA1IDI0IDcuNjY0IDEyIDE5IDAgNy42NjQiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMiAxMikiLz4KPC9zdmc+Cg=="/></a>
+          <div class="clwp-nav__nav-contents">
+            <div class="clwp-nav__nav-contents-buffer"><div class="clwp-nav__nav-contents-container">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/accounting/"><strong>Business accounting basics</strong></a></p>
+<p><a href="/finance/accounting/best-small-business-accounting-software/">Best Small Business Accounting Software</a></p>
+<p><a href="/finance/accounting/best-accounting-apps/">Best Accounting Apps</a></p>
+<p><a href="/finance/accounting/small-business-bookkeeping-basics/">Small Business Bookkeeping Basics</a></p>
+<p><a href="/finance/accounting/how-to-effectively-manage-your-companys-profit-and-loss/">How to Effectively Manage Your Company's Profit &amp; Loss</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/accounting/"><strong>Business payroll basics</strong></a></p>
+<p><a href="/finance/accounting/best-payroll-software/">Best Payroll Software</a></p>
+<p><a href="/finance/accounting/best-payroll-companies/">Best Payroll Companies</a></p>
+<p><a href="/finance/accounting/best-payroll-apps/">Best Payroll Apps</a></p>
+<p><a href="/finance/accounting/best-free-payroll-software/">Best Free Payroll Software</a></p>
+<p><a href="/finance/accounting/best-nanny-payroll-service/">Best Nanny Payroll Service</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/taxes/"><strong>Business taxes basics</strong></a></p>
+<p><a href="/finance/taxes/best-tax-software/">Best Tax Software for Small Business</a></p>
+<p><a href="/finance/taxes/how-to-reduce-your-company-tax-liability/">How to Reduce Your Company Tax Liability</a></p>
+<p><a href="/finance/taxes/how-to-guide-for-filing-taxes/">How to File Business Taxes</a></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div></div>
+          </div>
+        </div><div data-elementor-type="menu" class="clwp-nav__nav-item"><a class="clwp-nav__nav-parent" href="/finance/inventory-management/">Inventory<img alt="Icon Caret Right  Dark" class="clwp-icon menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMi44MiA1IDEyIDEzLjY1MyAyMS4xOCA1IDI0IDcuNjY0IDEyIDE5IDAgNy42NjQiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMiAxMikiLz4KPC9zdmc+Cg=="/></a>
+          <div class="clwp-nav__nav-contents">
+            <div class="clwp-nav__nav-contents-buffer"><div class="clwp-nav__nav-contents-container">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/software/point-of-sale/"><strong>Business point-of-sale basics</strong></a></p>
+<p><a href="/software/point-of-sale/the-best-mobile-credit-card-reader-apps-for-your-small-business/">Best Mobile Credit Card Readers</a></p>
+<p><a href="/software/point-of-sale/best-pos-systems-for-business/">Best Point-of-Sale Systems</a></p>
+<p><a href="/software/point-of-sale/best-credit-card-readers/">Best Credit Card Readers</a></p>
+<p><a href="/software/point-of-sale/pos-system-work/">A Guide to Finding the Right POS System for Your Business</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/inventory-management/"><strong>Inventory management basics</strong></a></p>
+<p><a href="/finance/inventory-management/ultimate-guide-to-inventory-management">Ultimate Guide to Inventory Management</a></p>
+<p><a href="/finance/cost-management/best-inventory-management-software/">Best Inventory Management Software</a></p>
+<p><a href="/finance/inventory-management/best-free-inventory-management-software/">Best Free Inventory Management Software</a></p>
+<p><a href="/finance/inventory-management/why-is-inventory-management-important/">Why is Inventory Management Important?</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/payment-processing/"><strong>Payment processing basics</strong></a></p>
+<p><a href="/finance/payment-processing/best-credit-card-processing-for-small-businesses/">Best Credit Card Processing</a></p>
+<p><a href="/finance/payment-processing/cheapest-credit-card-processing-companies/">Cheapest Credit Card Processing</a></p>
+<p><a href="/finance/payment-processing/online-payment-security-5-steps-to-ensure-safe-transactions/">Online Payment Security: 5 Steps to Ensure Safe Transactions</a></p>
+<p><a href="/finance/payment-processing/stripe-review/">Stripe Review</a></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div></div>
+          </div>
+        </div><div data-elementor-type="menu" class="clwp-nav__nav-item"><a class="clwp-nav__nav-parent" href="/services/">Other Services<img alt="Icon Caret Right  Dark" class="clwp-icon menu-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMi44MiA1IDEyIDEzLjY1MyAyMS4xOCA1IDI0IDcuNjY0IDEyIDE5IDAgNy42NjQiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMiAxMikiLz4KPC9zdmc+Cg=="/></a>
+          <div class="clwp-nav__nav-contents">
+            <div class="clwp-nav__nav-contents-buffer"><div class="clwp-nav__nav-contents-container">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Operations</strong></p>
+<p><a href="/services/phone/best-business-voip-providers/">Best Business VoIP Providers</a></p>
+<p><a href="/services/internet/best-business-high-speed-internet-providers/">Best High-Speed Internet Providers</a></p>
+<p><a href="/services/phone/best-business-cell-phone-plans/">Best Business Cell Phone Plans</a></p>
+<p><a href="/business/operations/best-business-security-systems/">Best Business Security Systems</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Marketing services</strong></p>
+<p><a href="/services/website/best-website-builder-for-business/">Best Website Builders</a></p>
+<p><a href="/services/website/best-web-hosting-providers/">Best Website Hosting</a></p>
+<p><a href="/services/website/best-domain-registrars/">Best Domain Registrars</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-4 cell     "></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div></div>
+          </div>
+        </div><div class='clwp-nav__after'></div></nav></div><div data-widget="search-box" class="search-box component-margin--medium ">
+      <img alt="Search  Dark" class="clwp-icon search-box__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+Yml0L2ljb24vc3lzdGVtL3NlYXJjaDwvdGl0bGU+CiAgICA8ZyBpZD0iTmF2L0Zvb3RlciIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iMC41Ij4KICAgICAgICA8ZyBpZD0iYm9yZy9jb21wb25lbnQvZ2xvYmFsL25hdi1saWdodC8tc21hbGwtaG92ZXIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOC4wMDAwMDAsIC0xMDguMDAwMDAwKSIgZmlsbD0iIzBDMTI0MSI+CiAgICAgICAgICAgIDxnIGlkPSJzZWFyY2giIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2LjAwMDAwMCwgOTQuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iYml0L2ljb24vc3lzdGVtL3NlYXJjaCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuMDAwMDAwLCAxNC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTQuMjkzODgyMiwxMi41Nzg2MTY0IEwxMy4wNzAzMjU5LDEyLjI2OTg2ODUgQzE0LjE5MDk2NjMsMTAuOTY2MjY2NCAxNC44NjU2Mzc1LDkuMjczODcwNzggMTQuODY1NjM3NSw3LjQzMjgxODc1IEMxNC44NjU2Mzc1LDMuMzI3NjE1NzggMTEuNTM4MDIxNywwIDcuNDMyODE4NzUsMCBDMy4zMjc2MTU3OCwwIDAsMy4zMjc2MTU3OCAwLDcuNDMyODE4NzUgQzAsMTEuNTM4MDIxNyAzLjMyNzYxNTc4LDE0Ljg2NTYzNzUgNy40MzI4MTg3NSwxNC44NjU2Mzc1IEM5LjI3Mzg3MDc4LDE0Ljg2NTYzNzUgMTAuOTY2MjY2NCwxNC4xOTA5NjYzIDEyLjI2OTg2ODUsMTMuMDcwMzI1OSBMMTIuNTc4NjE2NCwxNC4yOTM4ODIyIEwxOC4yOTYxNjkyLDIwIEwyMCwxOC4yOTYxNjkyIEwxNC4yOTM4ODIyLDEyLjU3ODYxNjQgWiBNNy40MzI4MTg3NSwxMi41Nzg2MTY0IEM0LjU4NTQ3NzQyLDEyLjU3ODYxNjQgMi4yODcwMjExNSwxMC4yODAxNjAxIDIuMjg3MDIxMTUsNy40MzI4MTg3NSBDMi4yODcwMjExNSw0LjU4NTQ3NzQyIDQuNTg1NDc3NDIsMi4yODcwMjExNSA3LjQzMjgxODc1LDIuMjg3MDIxMTUgQzEwLjI4MDE2MDEsMi4yODcwMjExNSAxMi41Nzg2MTY0LDQuNTg1NDc3NDIgMTIuNTc4NjE2NCw3LjQzMjgxODc1IEMxMi41Nzg2MTY0LDEwLjI4MDE2MDEgMTAuMjgwMTYwMSwxMi41Nzg2MTY0IDcuNDMyODE4NzUsMTIuNTc4NjE2NCBaIiBpZD0iU2VhcmNoIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="/>      <form class="search-box__form" action="https://www.business.org/">
+        <input type="search" class="search-box__field" placeholder="Search" value="" name="s">
+                        <input type="submit" class="search-box__submit" value="Search">
+      </form>
+
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+				</div>
+			</div>
+		</div>
+		</section>
+  <section class="clwp-container">
+      <div class="clwp-scrolling-toc">
+      <div class="clwp-scrolling-toc__viewport">
+        <div class="clwp-scrolling-toc__scrollable-container">
+          <nav class="clwp-scrolling-toc__nav">
+            <ul class="clwp-scrolling-toc__list">
+              <li class="clwp-scrolling-toc__item clwp-scrolling-toc__item--before-text">
+                On this page:              </li>
+              <li class="clwp-scrolling-toc__item" data-index="0"><a href="#What_is_bookkeeping" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to What is bookkeeping Section">What is bookkeeping</a></li><li class="clwp-scrolling-toc__item" data-index="1"><a href="#1_Understand_business_accounts" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 1 Understand business accounts Section">1 Understand business accounts</a></li><li class="clwp-scrolling-toc__item" data-index="2"><a href="#2_Set_up_your_business_accounts" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 2 Set up your business accounts Section">2 Set up your business accounts</a></li><li class="clwp-scrolling-toc__item" data-index="3"><a href="#3_Decide_on_a_bookkeeping_method" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 3 Decide on a bookkeeping method Section">3 Decide on a bookkeeping method</a></li><li class="clwp-scrolling-toc__item" data-index="4"><a href="#4_Record_every_financial_transaction" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 4 Record every financial transaction Section">4 Record every financial transaction</a></li><li class="clwp-scrolling-toc__item" data-index="5"><a href="#5_Balance_the_books" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 5 Balance the books Section">5 Balance the books</a></li><li class="clwp-scrolling-toc__item" data-index="6"><a href="#6_Prepare_financial_reports" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 6 Prepare financial reports Section">6 Prepare financial reports</a></li><li class="clwp-scrolling-toc__item" data-index="7"><a href="#7_Stick_to_a_schedule" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 7 Stick to a schedule Section">7 Stick to a schedule</a></li><li class="clwp-scrolling-toc__item" data-index="8"><a href="#8_Store_records_securely" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 8 Store records securely Section">8 Store records securely</a></li><li class="clwp-scrolling-toc__item" data-index="9"><a href="#9_Dont_go_it_alone" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to 9 Dont go it alone Section">9 Dont go it alone</a></li><li class="clwp-scrolling-toc__item" data-index="10"><a href="#FAQs" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to FAQs Section">FAQs</a></li><li class="clwp-scrolling-toc__item" data-index="11"><a href="#The_takeaway" class="clwp-scrolling-toc__link" draggable="false" ondragstart="return false;" title="Jump to The takeaway Section">The takeaway</a></li>              <li class="clwp-scrolling-toc__item clwp-scrolling-toc__item--back-to-top">
+                Back to top<img alt="Caret Up  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQiIGhlaWdodD0iMTA0IiB2aWV3Qm94PSIwIDAgMTA0IDEwNCI+CiAgPHBvbHlnb24gZmlsbD0iIzIzMjMyMyIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjEyLjIyIC4xNjMgNTIgNDAuMjM3IDkxLjc4IC4xNjMgMTA0IDEyLjUgNTIgNjUgMCAxMi41IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTgwIDUyIDQxKSIvPgo8L3N2Zz4K" data-icon-hover="https://www.business.org/app/themes/coolwhip/assets/icons/icon-caret-up--dark-hover.svg"/>              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <article class="main-content" id="main-content">
+<!-- cached 2020-11-20 19:31:35 -->
+
+<!--section start -->
+
+<div class="grid-container grid-container--default article-header  row-padding--default row-margin--large">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="breadcrumbs" class="breadcrumbs component-margin--medium "><span><span><a href="https://www.business.org/" >Home</a> &gt; <span><a href="https://www.business.org/finance/" >Finance</a> &gt; <span><a href="https://www.business.org/finance/accounting/" >Accounting</a></span></div><div data-widget="post-title" class="post-title post-title--align-default component-margin--medium "><h1 class="heading--h1-large post-title__title">Small-Business Bookkeeping Basics: Here’s What You Need to Know</h1></div>
+
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    </a><div class="clwp-heading clwp-heading--medium clwp-heading--subheading">No accounting degree? No problem. Learn the basics of small-business accounting with this beginner’s guide.</div>  </div>
+</div></div>
+<!--column end -->
+
+
+
+</div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     ">
+<!--section start -->
+
+<div class="grid-container grid-container--default article-author-credit   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-6 cell     "><div data-widget="author-credit" class="author-credit component-margin--medium component-background--default"><div class="author-credit__image">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://www.business.org/app/uploads/2020/09/Borg-staff-avi-150x150.png" class="lazy-image avatar photo custom" alt="Business.org Staff Writer" /></div>
+
+<div class="text--p-small author-credit__content">
+
+  <div class="sc-margin--xsm text--bold author-credit__name">
+    
+      <span class="author-credit__before-name">
+        By       </span>
+
+    
+          <a href="https://www.business.org/author/staff-writer/" class="sc-margin--xsm author-credit__author-name">
+        Business.org Staff Writer      </a>
+      
+  </div>
+
+  
+    <div class="text--p-xsmall sc-margin--xsm author-credit__title">
+      Researcher & Writer    </div>
+
+  
+  
+    <a href="https://www.business.org/author/staff-writer/" class="text--p-xsmall link--secondary-link author-credit__read-more">
+      Read More    </a>
+
+  
+  
+</div>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-6 cell     "><div data-widget="updated-published" class="updated-published updated-published--align-right component-margin--xsmall "><div class="text--p-small updated-published__date">Published on December 20, 2019</div></div><div data-widget="social-share" class="social-share social-share--align-right component-margin--medium "><div class="text--p-xsmall sc-margin--none sc-gutter--right-sm social-share__heading">Share Article</div>
+<button data-sharer="facebook"
+          class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button"
+          data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/">
+    <img alt="Social Facebook O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+Yml0L2ljb24vc3lzdGVtL3NvY2lhbC9mYWNlYm9vazwvdGl0bGU+CiAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImJvcmcvY29tcG9uZW50L2dsb2JhbC9hdXRob3ItYmlvLy1sYXJnZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYzNi4wMDAwMDAsIC00MS4wMDAwMDApIiBmaWxsPSIjMUIyQTk4Ij4KICAgICAgICAgICAgPGcgaWQ9IkRhdGUtSW5mbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJlbGVtZW50L2dsb2JhbC9zb2NpYWwtaWNvbnMvYXV0aG9yLWJpbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCA0MS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iYml0L2ljb24vc3lzdGVtL3NvY2lhbC9mYWNlYm9vayIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDkuMDAwMDAwLCAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTIsMCBDMTguNjI3MzY4NCwwIDI0LDUuMzcyNjMxNTggMjQsMTIgQzI0LDE4LjYyNzM2ODQgMTguNjI3MzY4NCwyNCAxMiwyNCBDNS4zNzI2MzE1OCwyNCAwLDE4LjYyNzM2ODQgMCwxMiBDMCw1LjM3MjYzMTU4IDUuMzcyNjMxNTgsMCAxMiwwIFogTTEyLDEuNiBDNi4yNTYyODcxOCwxLjYgMS42LDYuMjU2Mjg3MTggMS42LDEyIEMxLjYsMTcuNzQzNzEyOCA2LjI1NjI4NzE4LDIyLjQgMTIsMjIuNCBDMTcuNzQzNzEyOCwyMi40IDIyLjQsMTcuNzQzNzEyOCAyMi40LDEyIEMyMi40LDYuMjU2Mjg3MTggMTcuNzQzNzEyOCwxLjYgMTIsMS42IFogTTEzLjI5ODA4MDYsNC44IEMxNC4xOTk1NDYyLDQuOCAxNC45NzQxNTMxLDQuODY3MDgxMzQgMTUuMiw0Ljg5NzA2NjEzIEwxNS4yLDcuMTAxNTI0MzMgTDEzLjg5NDg5MzEsNy4xMDIxMDA5NiBDMTIuODcxNTY2Miw3LjEwMjEwMDk2IDEyLjY3MzM5NzYsNy41ODgzOTI2NCAxMi42NzMzOTc2LDguMzAyMDY4OTMgTDEyLjY3MzM5NzYsOS44NzU2OTM0MiBMMTUuMTE0MDgyMSw5Ljg3NTY5MzQyIEwxNC43OTYxNjY1LDEyLjM0MDIxMiBMMTIuNjczMzk3NiwxMi4zNDAyMTIgTDEyLjY3MzM5NzYsMTguNjY0NTAyNSBMMTAuMTI4MTUwOCwxOC42NjQ1MDI1IEwxMC4xMjgxNTA4LDEyLjM0MDIxMiBMOCwxMi4zNDAyMTIgTDgsOS44NzU2OTM0MiBMMTAuMTI4MTUwOCw5Ljg3NTY5MzQyIEwxMC4xMjgxNTA4LDguMDU3OTYyMDQgQzEwLjEyODE1MDgsNS45NDg2NDc4NSAxMS40MTY1MzU0LDQuOCAxMy4yOTgwODA2LDQuOCBaIiBpZD0iRmFjZWJvb2siPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="/></button>
+
+<button data-sharer="twitter"
+        data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/"
+        data-title="Small-Business Bookkeeping Basics: Here’s What You Need to Know"
+        data-via="businessdotorg"
+        class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button">
+  <img alt="Social Twitter O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjMUIyQTk4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiwwIEMxOC42MjczNjg0LDAgMjQsNS4zNzI2MzE1OCAyNCwxMiBDMjQsMTguNjI3MzY4NCAxOC42MjczNjg0LDI0IDEyLDI0IEM1LjM3MjYzMTU4LDI0IDAsMTguNjI3MzY4NCAwLDEyIEMwLDUuMzcyNjMxNTggNS4zNzI2MzE1OCwwIDEyLDAgWiBNMTIsMS42IEM2LjI1NjI4NzE4LDEuNiAxLjYsNi4yNTYyODcxOCAxLjYsMTIgQzEuNiwxNy43NDM3MTI4IDYuMjU2Mjg3MTgsMjIuNCAxMiwyMi40IEMxNy43NDM3MTI4LDIyLjQgMjIuNCwxNy43NDM3MTI4IDIyLjQsMTIgQzIyLjQsNi4yNTYyODcxOCAxNy43NDM3MTI4LDEuNiAxMiwxLjYgWiBNMTQuNzA3OTI2Myw3LjIgQzE1LjQxNjA2MTQsNy4yIDE2LjA1NjAxMzcsNy40OTkwMzgxIDE2LjUwNTAxODMsNy45NzczOTE2OSBDMTcuMDY1ODcxMyw3Ljg2Njk3NDg3IDE3LjU5MjcyMjQsNy42NjIwNjg0NSAxOC4wNjgzOTE2LDcuMzgwMDMxMzIgQzE3Ljg4NDYwMjIsNy45NTQ4NDMwNCAxNy40OTQyOTU3LDguNDM3MzEyNjUgMTYuOTg1ODc3Myw4Ljc0MjA3NzQgQzE3LjQ4MzkxNjIsOC42ODI0ODQ1MyAxNy45NTgzMzI3LDguNTUwMjM0ODggMTguNCw4LjM1NDQ1NTMgQzE4LjA3MDAwMjIsOC44NDgxOTkyNCAxNy42NTI0OTQyLDkuMjgxODEzNDQgMTcuMTcxNDU2Myw5LjYyODgxMjE3IEMxNy4xNzYyODgxLDkuNzM0Mzk3MTQgMTcuMTc4NjE0Niw5Ljg0MDY5NzkzIDE3LjE3ODYxNDYsOS45NDczNTY2NSBDMTcuMTc4NjE0NiwxMy4yMDA2MjY0IDE0LjcwMjM3ODYsMTYuOTUyMTEzOSAxMC4xNzM4NTczLDE2Ljk1MjExMzkgQzguNzgzNTM1OSwxNi45NTIxMTM5IDcuNDg5NDkzNywxNi41NDQ2Mjc1IDYuNCwxNS44NDU5NzcyIEM2LjU5MjU1ODM1LDE1Ljg2ODcwNDggNi43ODg1MTY4OSwxNS44ODA1MTYgNi45ODcxNTk3OSwxNS44ODA1MTYgQzguMTQwNzIwMywxNS44ODA1MTYgOS4yMDIyOTY2MiwxNS40ODY4MDkzIDEwLjA0NDgyODksMTQuODI2NDU1OSBDOC45Njc1MDQyOSwxNC44MDY3NzA2IDguMDU4Mzk5ODIsMTQuMDk0ODc3MyA3Ljc0NTA0NTExLDEzLjExNjg3NDIgQzcuODk1MzY5NDcsMTMuMTQ1NTA3NCA4LjA0OTYzMDksMTMuMTYwODk3OCA4LjIwODE4NzMxLDEzLjE2MDg5NzggQzguNDMyNzc5MDYsMTMuMTYwODk3OCA4LjY1MDIxMjUxLDEzLjEzMDgzMjkgOC44NTY5MDg1MSwxMy4wNzQ2NDAyIEM3LjczMDU0OTU1LDEyLjg0ODQzNzggNi44ODE5MzI3NCwxMS44NTM0MzM3IDYuODgxOTMyNzQsMTAuNjYwNTAyNiBDNi44ODE5MzI3NCwxMC42NTAxMjMgNi44ODE5MzI3NCwxMC42Mzk5MjI1IDYuODgyMTExNywxMC42Mjk1NDI5IEM3LjIxNDA3OCwxMC44MTQwNDgyIDcuNTkzNjQ3MDEsMTAuOTI0NjQzOSA3Ljk5NzE5NjMzLDEwLjkzNzUyODkgQzcuMzM2NjYzOTMsMTAuNDk2MDQwNiA2LjkwMTk3NTk5LDkuNzQyNDUwMjMgNi45MDE5NzU5OSw4Ljg4ODI4NTc0IEM2LjkwMTk3NTk5LDguNDM3MTMzNyA3LjAyMzQ4ODE4LDguMDE0MjU2OTUgNy4yMzUzNzM5NSw3LjY1MDYxNTE3IEM4LjQ0OTYwMTA3LDkuMTQwMDc5MDQgMTAuMjYzNjk0LDEwLjEyMDIyOTcgMTIuMzA5NzE1OSwxMC4yMjI5NTEzIEMxMi4yNjc4Mzk4LDEwLjA0Mjc0MSAxMi4yNDYwMDcsOS44NTQ4MzU1OCAxMi4yNDYwMDcsOS42NjE5MTkzMiBDMTIuMjQ2MDA3LDguMzAyMTk5NjkgMTMuMzQ4Mzg1Nyw3LjIgMTQuNzA3OTI2Myw3LjIgWiIvPgo8L3N2Zz4K"/></button>
+
+<button data-sharer="linkedin"
+        data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/"
+        class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button">
+  <img alt="Social Linkedin O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjMUIyQTk4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiwxLjQyMTA4NTQ3ZS0xNCBDMTguNjI3MzY4NCwxLjQyMTA4NTQ3ZS0xNCAyNCw1LjM3MjYzMTU4IDI0LDEyIEMyNCwxOC42MjczNjg0IDE4LjYyNzM2ODQsMjQgMTIsMjQgQzUuMzcyNjMxNTgsMjQgMS4xMzI0Mjc0OWUtMTQsMTguNjI3MzY4NCAxLjEzMjQyNzQ5ZS0xNCwxMiBDMS4xMzI0Mjc0OWUtMTQsNS4zNzI2MzE1OCA1LjM3MjYzMTU4LDEuNDIxMDg1NDdlLTE0IDEyLDEuNDIxMDg1NDdlLTE0IFogTTEyLDEuNiBDNi4yNTYyODcxOCwxLjYgMS42LDYuMjU2Mjg3MTggMS42LDEyIEMxLjYsMTcuNzQzNzEyOCA2LjI1NjI4NzE4LDIyLjQgMTIsMjIuNCBDMTcuNzQzNzEyOCwyMi40IDIyLjQsMTcuNzQzNzEyOCAyMi40LDEyIEMyMi40LDYuMjU2Mjg3MTggMTcuNzQzNzEyOCwxLjYgMTIsMS42IFogTTkuMDcyMjEyNSw5LjU1ODQ2MjUgTDkuMDcyMjEyNSwxNy41MjE5NjI1IEw2LjU5NzIxMjUsMTcuNTIxOTYyNSBMNi41OTcyMTI1LDkuNTU4NDYyNSBMOS4wNzIyMTI1LDkuNTU4NDYyNSBaIE0xNS4zNzM1MjUsOS4zNjA0MjUgQzE3Ljg3OTgzNzUsOS4zNjA0MjUgMTguMzQyNTg3NSwxMS4wMTAwNSAxOC4zNDI1ODc1LDEzLjE1MzkyNSBMMTguMzQyNTg3NSwxNy41MjE5MjUgTDE1Ljg2OTI3NSwxNy41MjE5MjUgTDE1Ljg2OTI3NSwxMy42NDkxMTI1IEMxNS44NjkyNzUsMTIuNzI1ODYyNSAxNS44NTIyMTI1LDExLjUzNzg2MjUgMTQuNTgzMDI1LDExLjUzNzg2MjUgQzEzLjI5NTI3NSwxMS41Mzc4NjI1IDEzLjA5NzQ2MjUsMTIuNTQzOCAxMy4wOTc0NjI1LDEzLjU4MjM2MjUgTDEzLjA5NzQ2MjUsMTcuNTIxOTI1IEwxMC42MjQ3MTI1LDE3LjUyMTkyNSBMMTAuNjI0NzEyNSw5LjU1ODQyNSBMMTIuOTk4NjUsOS41NTg0MjUgTDEyLjk5ODY1LDEwLjY0NjY3NSBMMTMuMDMxODM3NSwxMC42NDY2NzUgQzEzLjM2MjIxMjUsMTAuMDIwNDI1IDE0LjE2OTQsOS4zNjA0MjUgMTUuMzczNTI1LDkuMzYwNDI1IFogTTcuODM1NDYyNSw1LjU5OTk2MjUgQzguNjI2NzEyNSw1LjU5OTk2MjUgOS4yNjk0NjI1LDYuMjQzMDg3NSA5LjI2OTQ2MjUsNy4wMzQ1MjUgQzkuMjY5NDYyNSw3LjgyNjcxMjUgOC42MjY3MTI1LDguNDY5ODM3NSA3LjgzNTQ2MjUsOC40Njk4Mzc1IEM3LjA0MjE1LDguNDY5ODM3NSA2LjM5OTk2MjUsNy44MjY3MTI1IDYuMzk5OTYyNSw3LjAzNDUyNSBDNi4zOTk5NjI1LDYuMjQzMDg3NSA3LjA0MjE1LDUuNTk5OTYyNSA3LjgzNTQ2MjUsNS41OTk5NjI1IFoiLz4KPC9zdmc+Cg=="/></button>
+
+<button data-sharer="email"
+        data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/"
+        data-title="Small-Business Bookkeeping Basics: Here’s What You Need to Know"
+        data-to="mybestfriend@example.com"
+        class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button">
+  <img alt="Social Email O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+Yml0L2ljb24vc3lzdGVtL3NvY2lhbC9lbWFpbDwvdGl0bGU+CiAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImJvcmcvY29tcG9uZW50L2dsb2JhbC9hdXRob3ItYmlvLy1sYXJnZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc0NC4wMDAwMDAsIC00MS4wMDAwMDApIiBmaWxsPSIjMUIyQTk4Ij4KICAgICAgICAgICAgPGcgaWQ9IkRhdGUtSW5mbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJlbGVtZW50L2dsb2JhbC9zb2NpYWwtaWNvbnMvYXV0aG9yLWJpbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCA0MS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0OS4wMDAwMDAsIDAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJiaXQvaWNvbi9zeXN0ZW0vc29jaWFsL2VtYWlsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDguMDAwMDAwLCAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyLDAgQzE4LjYyNzM2ODQsMCAyNCw1LjM3MjYzMTU4IDI0LDEyIEMyNCwxOC42MjczNjg0IDE4LjYyNzM2ODQsMjQgMTIsMjQgQzUuMzcyNjMxNTgsMjQgMCwxOC42MjczNjg0IDAsMTIgQzAsNS4zNzI2MzE1OCA1LjM3MjYzMTU4LDAgMTIsMCBaIE0xMiwxLjYgQzYuMjU2Mjg3MTgsMS42IDEuNiw2LjI1NjI4NzE4IDEuNiwxMiBDMS42LDE3Ljc0MzcxMjggNi4yNTYyODcxOCwyMi40IDEyLDIyLjQgQzE3Ljc0MzcxMjgsMjIuNCAyMi40LDE3Ljc0MzcxMjggMjIuNCwxMiBDMjIuNCw2LjI1NjI4NzE4IDE3Ljc0MzcxMjgsMS42IDEyLDEuNiBaIE0xNy43Niw2LjQgQzE4LjU1Miw2LjQgMTkuMiw3LjAxOTQxMTc2IDE5LjIsNy43NzY0NzA1OSBMMTkuMiw3Ljc3NjQ3MDU5IEwxOS4yLDE2LjAzNTI5NDEgQzE5LjIsMTYuNzkyMzUyOSAxOC41NTIsMTcuNDExNzY0NyAxNy43NiwxNy40MTE3NjQ3IEwxNy43NiwxNy40MTE3NjQ3IEw2LjI0LDE3LjQxMTc2NDcgQzUuNDQ4LDE3LjQxMTc2NDcgNC44LDE2Ljc5MjM1MjkgNC44LDE2LjAzNTI5NDEgTDQuOCwxNi4wMzUyOTQxIEw0LjgsNy43NzY0NzA1OSBDNC44LDcuMDE5NDExNzYgNS40NDgsNi40IDYuMjQsNi40IEw2LjI0LDYuNCBaIE0xNy43Niw5LjE1Mjk0MTE4IEwxMiwxMi41OTQxMTc2IEw2LjI0LDkuMTUyOTQxMTggTDYuMjQsMTYuMDM1Mjk0MSBMMTcuNzYsMTYuMDM1Mjk0MSBMMTcuNzYsOS4xNTI5NDExOCBaIE0xNy43Niw3Ljc3NjQ3MDU5IEw2LjI0LDcuNzc2NDcwNTkgTDEyLDExLjIxMDc2NDcgTDE3Ljc2LDcuNzc2NDcwNTkgWiIgaWQ9IkVtYWlsIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="/></button>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     ">
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="last-updated" class="last-updated component-margin--medium component-background--default">
+<div class="last-updated__gallery-container">
+    <div class="last-updated__container">
+        <div class="sc-padding-top--sm last-updated__date-line">
+            <div class="clwp-icon--sm sc-gutter--right-md last-updated__icon"><img alt="Icon Last Updated  Dark" class="clwp-icon last-updated-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjNjI3MDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMC44LDIuMTgxODE4MTggTDE5LjcsMi4xODE4MTgxOCBMMTkuNywwIEwxNy41LDAgTDE3LjUsMi4xODE4MTgxOCBMNi41LDIuMTgxODE4MTggTDYuNSwwIEw0LjMsMCBMNC4zLDIuMTgxODE4MTggTDMuMiwyLjE4MTgxODE4IEMxLjk5LDIuMTgxODE4MTggMSwzLjE2MzYzNjM2IDEsNC4zNjM2MzYzNiBMMSwyMS44MTgxODE4IEMxLDIzLjAxODE4MTggMS45OSwyNCAzLjIsMjQgTDIwLjgsMjQgQzIyLjAxLDI0IDIzLDIzLjAxODE4MTggMjMsMjEuODE4MTgxOCBMMjMsNC4zNjM2MzYzNiBDMjMsMy4xNjM2MzYzNiAyMi4wMSwyLjE4MTgxODE4IDIwLjgsMi4xODE4MTgxOCBaIE0yMC44LDIxLjgxODE4MTggTDMuMiwyMS44MTgxODE4IEwzLjIsOS44MTgxODE4MiBMMjAuOCw5LjgxODE4MTgyIEwyMC44LDIxLjgxODE4MTggWiBNMjAuOCw3LjYzNjM2MzY0IEwzLjIsNy42MzYzNjM2NCBMMy4yLDQuMzYzNjM2MzYgTDIwLjgsNC4zNjM2MzYzNiBMMjAuOCw3LjYzNjM2MzY0IFoiLz4KPC9zdmc+Cg=="/></div>
+            <div class="text--p-medium text--bold last-updated__date">Last Updated: several months ago</div>
+        </div>
+        <div class="sc-margin--md text--p-medium last-updated__content">
+            <div class="sc-margin--md last-updated__content--update">
+                <p>We updated this page to include a few more links to articles we found helpful for our readers—most notably, a link to our piece on the best bookkeeping software for small businesses.</p>
+            </div>
+        </div>    
+        <div class="text--p-medium last-updated__content--expanded">
+            <div class="text--p-medium text--bold last-updated__date">Updated: several months ago</div><div class="sc-margin--md last-updated__content--update"><p>We recently revised this page to include a few more bookkeeping tips. We also added an FAQ section to help explain why bookkeeping is so important for small businesses and when it’s time to hire a bookkeeper or accountant instead of going it alone.</p>
+</div>        </div>
+    </div>
+
+    <div class="component-separator--inline-before component-separator--inline-after last-updated__bottom-line">            <div class="last-updated__view-all">
+                <div class="last-updated__view-all--text">View all updates</div>
+                <div class="clwp-icon--xsm last-updated__view-all--down-icon"><img alt="Icon Caret Down  Dark" class="clwp-icon last-updated-caret-down" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQiIGhlaWdodD0iMTA0IiB2aWV3Qm94PSIwIDAgMTA0IDEwNCI+CiAgPHBvbHlnb24gZmlsbD0iIzIzMjMyMyIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjEyLjIyIC4xNjMgNTIgNDAuMjM3IDkxLjc4IC4xNjMgMTA0IDEyLjUgNTIgNjUgMCAxMi41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDIyKSIvPgo8L3N2Zz4K" data-icon-hover="https://www.business.org/app/themes/coolwhip/assets/icons/icon-caret-down--dark-hover.svg"/></div>
+                <div class="clwp-icon--xsm last-updated__view-all--up-icon"><img alt="Icon Caret Up  Dark" class="clwp-icon last-updated-caret-up" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQiIGhlaWdodD0iMTA0IiB2aWV3Qm94PSIwIDAgMTA0IDEwNCI+CiAgPHBvbHlnb24gZmlsbD0iIzIzMjMyMyIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjEyLjIyIC4xNjMgNTIgNDAuMjM3IDkxLjc4IC4xNjMgMTA0IDEyLjUgNTIgNjUgMCAxMi41IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTgwIDUyIDQxKSIvPgo8L3N2Zz4K" data-icon-hover="https://www.business.org/app/themes/coolwhip/assets/icons/icon-caret-up--dark-hover.svg"/></div>
+            </div>
+        </div></div></div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>When you opened the doors of your small business, you were probably excited to meet your first customers and start turning a profit. In contrast, you might have felt less enthusiastic about learning to bookkeep, especially if you’ve never thought of yourself as a “math person.”</p>
+<p>But to run a small business, you have to be at least a little skilled in the art of bookkeeping. The thought might be overwhelming if you’re more passionate about, say, selling used books or offering excellent life-coaching advice than you are about numbers—but a basic understanding of bookkeeping can revolutionize your business. Bookkeeping is the process of recording and organizing a business’s financial transactions.</p>
+<p>With the <a href="https://www.business.org/finance/accounting/best-bookkeeping-software/">right bookkeeping tools,</a> you’ll feel more confident in your business’s future and better able to understand (and plan for) your own profitability. Best of all, you don’t need to become an overnight calculus expert to understand bookkeeping. Instead, just keep reading—the tips we list below can help you get a handle on bookkeeping basics that will help your small business succeed.</p>
+</div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">Small-Business Bookkeeping Basics</h2></a>  </div>
+</div><div data-widget="featured-snippet" class="featured-snippet component-margin--medium component-background--default">
+  <div class="sc-margin-small-only--md featured-snippet__content">
+    <ol class="list-style--num featured-snippet__ol-items"><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#1_Understand_business_accounts">Understand business accounts</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#2_Set_up_your_business_accounts">Set up your business accounts</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#3_Decide_on_a_bookkeeping_method">Decide on a bookkeeping method</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#4_Record_every_financial_transaction">Record every financial transaction</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#5_Balance_the_books">Balance the books</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#6_Prepare_financial_reports">Prepare financial reports</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#7_Stick_to_a_schedule">Stick to a schedule</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#8_Store_records_securely">Store records securely</a></div></li><li class="sc-margin--sm featured-snippet__item"><div class="text--p-medium link--secondary-link sc-margin--none featured-snippet__item-link"><a  href="#9_Don't_go_it_alone">Don't go it alone</a></div></li></ol>
+  </div>
+
+<div class="featured-snippet__image"><img width="300" height="200" data-cached="1" src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEA8ADwAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwNDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUX/wAARCAAoADwDASIAAhEBAxEB/8QAHAABAAMAAgMAAAAAAAAAAAAABQAEBgEDAgcI/8QAJRAAAgIDAAICAgIDAAAAAAAAAQIAAwQFERIhBjETQRQVIlFx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAEDAgT/xAAbEQEBAQEBAAMAAAAAAAAAAAABAAIRIRIxMv/aAAwDAQACEQMRAD8A0mK9+PslrJLL2aSxw16kwjwUbgDn7i1oAyBFBXSwf1IK/GdIBLepzbaaVHYdio7q56MRmrPDyZPU77Ie90vf0P8AcV3mf5IUJ9Geus85FWV5VMQpP6k19qmT49bV7H5kuJayL75M9kfO7fzHg9QTZ0PWotY97ArP8nJlAGjpR5fQNlY/uh/2KWV9vB/UDyMxBtRYh6vZeytsip1fuDMkLb0qYAfcK2m2rp4GEo27MeBcn3Mnu92XsAXhinzla+QbFSo4edguRYv8QH7aH3tkbTLSvy4BGqsD8NYFoLED1MfXrU/XAhs1Gvxgh+zCDpLmPQDH2xrXzfKwFax9CW2y6Ebx9eprPQnrGdNe3O0OozhWxJHZ3Ye9qziFUjskk3c95bG7ieKn7mK3V1tbdH6kkgT1FYO1uqzFdm+jNxV8lr/jhnXp5JJHwsikdk70ZfSq8Ahb7Ch2JJ9ySTNUb//Z" data-src="https://www.business.org/app/uploads/2018/06/iStock-909655428-300x200.jpg" data-large="https://www.business.org/app/uploads/2018/06/iStock-909655428.jpg" class="lazy-image" alt="Two people stand at a coffeeshop countertop, one looking at a laptop and the other doing calculations on a piece of paper" /></div></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+<div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="What_is_bookkeeping" id="What_is_bookkeeping" class="page_anchor" data-label="What is bookkeeping" data-anchor="What_is_bookkeeping" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">What is bookkeeping?</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Before we dive in, let’s define what bookkeeping actually is.</p>
+<p>Basically, bookkeeping is the process of recording and organizing a business’s financial transactions, and a bookkeeper is a person responsible for that process. Bookkeeping is the primary way business owners can figure out if their business is profitable: keeping an eye on your numbers lets you identify financial challenges early on and address them before they blossom into full-fledged crises. Bookkeeping also helps you identify areas of profit expansion—areas you might not have noticed without clear financial reports you can interpret easily.</p>
+<p>In general, a bookkeeper records transactions, sends invoices, makes payments, manages accounts, and prepares financial statements. Bookkeeping and <a href="https://www.business.org/finance/accounting/">accounting</a> are similar, but bookkeeping lays the basis for the accounting process—accounting focuses more on analyzing the data that bookkeeping merely collects. <b></b></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default email-signup  row-padding--default row-margin--medium">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x  align-top has-shadow shadow--medium has-border border--top-flair ">
+<!--column start -->
+
+<div class="medium-12 cell    column-padding--small ">
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x  align-middle   ">
+<!--column start -->
+
+<div class="medium-4 cell     "><div data-widget="simple-image" class="simple-image-container align-left component-margin--medium hide-for-small-only "><div class="simple-image__image"><img width="214" height="103" data-cached="1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAVCAYAAADfLRcdAAAFg0lEQVRIx62XTY8cSRGGn4jMquqPmWmvx/Z4hwWEljNCcNhftOwPgP9lxAGJG0ckzggBQkjYa9Yf67Xb09PdVZnxcqjqmbHQihnJLWWV6iM7n3gjMiLKuMNPkgMLSfejxqNS61ktcVpKXdZSvdZA0tX7ZuDueHKl5FtP/p27vXC3F5K+jYiL5XJZb7t+vgMogAEtsBJ8FqHPS6mfDf1wb+hLGoZChAABhrmRk5ObrNykdVZ6TvbO8EFoA1xKCjPTbRhuDTuBGtABK6RPkT6PiJ+WUh/u933e7wZKqUjCDFJymrahlQLTG3c78qAP4w3wCvCDEGb2cWAlHf7JJ2WPMDsVnEv8KKTHNZRrBLVWFMJ8nJJqoIiQdCJFL/k3EidmdGbmN4T4v+reVVkHGmAmWFRY9uhoFzraRaS+xggq4WHgIITG0x44ElqCZmCtu6fbgh6UugtsmgxsKrXZU/NWxTcxsKmFXQ2GKhQ2xoyNZxCYDBvnHoaZ5Zuh8LGVzUATqm2vodlqlzba20Xs2NUBk+jkuDluhifDMsgDeZhMyUbg1sxuwtbbKHwXWL9WNZp93eVN3aT3ZWvr/Y7dZSHvHYuO1jLWgXKlVCNFogYWuIuUG2jSh7AfNWYP8ZqALEUuMaS+7Hy3v7TtdstuU2j3DZ2ckg1ZoCxqErjR5cpQzWQ5mXlux7XT98F++eQpXG9sA+yuyjqQBC7kRGC1Yn2B/YB2UFUojVNTpQ5ByYHcKdWxWqxN4S04Zj5lgwMsAL/5wzesL3ubYvjgzRZo76LsjQuzbIm5NzZ4i1KlyY7nxEyJ1DiWg0iGzAiMAKpEFQRXBcYkIeCP/9rw1W+f2rtNf3iWJDqFjhAriZPbwn7gIjdX5y1LX4hs5C4znw+QjIaG3CTUJVJbsTRCZzKJNMooGKr87b7kf35Xuj8/u+SvL3dV1+tkiblC9xQ8RJxJPLhLGMQ0arIUrc9CyfCcyF1DtxyIVjiOZ4MshlRJLmRGtoaWbB7mfaFZb8vib2/KJ395uZ99vR5GwTkkZVqFThQ8UnCu4AcSZx/AfvW75xCHoL4WM8YSFmZWgWJYyeQqI5RMahzvMjWPPYlN8rklGgRmJLJ75CaKLd7WuP/1Os7//nroXl6U2hcZY6oNJEb384mCxxPoOdLDDPCrJ8+QwqKUQ/0/BD4Av/79c7744SL97PHczo8bmzUmi7E4GU5yJyXnUK/Mxo2cQiQDDzeLlGqx2Va692pbz5+9K/n1ppxvB3kNsiQTBGPj1ilYSTxCnIEeAKv85ZOnJgWMaaQBZtNop3ts+tCf/n3pz94Ns1+cz09/fK9dHWfmuUYTY2toUYOoMfrERpkUo6qGUCHvQ4t1iQevN+LbTb2/2UYdBrVVamB8TaO9jcSRxArpBFgCXUY6mqDa6eYJsEIsNMIboO0Q+s966P7R+kPE+adLv39sMU+hfFjhKm8Y2Hi4GlXkfWFxsdPpehuLi52G/SArRa3G9OSIkAApAa1EB7RmZAzLw1Y/wchmzM1YYZyacX+CbqfNKwldRuQX78pq4fbIaz6rM44XpiaBVXdigjWzcYJPlrrRY2lbmV0Myhd7He37oBR5VKVJLLvaKbo22wzDDLPRop9P7l8KViYeCE5vwDoiAjQUpfe7On91YUeNaxXVT46zmhZMYUh+6LtBNsYvBmHshb3t1az3arZDqK8QgX1f/2J2bbhNuyib88UENZ8A701jORlhGmOJANv1ym+3tWmcNiLaTWtNZ0LXHwg3srNdXfcS6x7WfXBZZGUqBv/Tc9t4MOMK8gCeMX45KdxhzIHFNGY33HPIf9ZXcdGHuWODzNa90aab/rMblf46joeA7SDe92IbGtssHzvHa8gbil6F1PWz/wIhYFw3libV4AAAAABJRU5ErkJggg==" data-src="https://www.business.org/app/uploads/2020/08/email.png" data-large="https://www.business.org/app/uploads/2020/08/email.png" class="simple-image simple-image-medium lazy-image" alt="" /></div></a></div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-8 cell     "><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <div class="clwp-heading clwp-heading--h4">Delivering Business Advice Directly to You</div></a>  </div>
+</div><div data-widget="embeddable-javascript" class="embeddable-javascript component-margin--small ">
+
+      <form method="POST" action="https://clearlink.activehosted.com/proc.php" id="_form_3_" class="_form _form_3 _inline-form  _dark" novalidate>
+        <input type="hidden" name="u" value="3" />
+        <input type="hidden" name="f" value="3" />
+        <input type="hidden" name="s" />
+        <input type="hidden" name="c" value="0" />
+        <input type="hidden" name="m" value="0" />
+        <input type="hidden" name="act" value="sub" />
+        <input type="hidden" name="v" value="2" />
+        <div class="_form-content">
+          <div class="_form_element _x34722670 _full_width " >
+            <label class="_form-label">
+              Email*
+            </label>
+            <div class="_field-wrapper">
+              <input type="text" name="email" placeholder="Type your email" required/>
+            </div>
+          </div>
+          <div class="_button-wrapper _full_width">
+            <button id="_form_3_submit" class="_submit" type="submit">
+              Sign up
+            </button>
+          </div>
+          <div class="_clear-element">
+          </div>
+        </div>
+        <div class="_form-thank-you" style="display:none;">
+        </div>
+      </form>
+<script type="text/javascript">
+window.cfields = [];
+window._show_thank_you = function(id, message, trackcmp_url, email) {
+  var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+  form.querySelector('._form-content').style.display = 'none';
+  thank_you.innerHTML = message;
+  thank_you.style.display = 'block';
+  const vgoAlias = typeof visitorGlobalObjectAlias === 'undefined' ? 'vgo' : visitorGlobalObjectAlias;
+  var visitorObject = window[vgoAlias];
+  if (email && typeof visitorObject !== 'undefined') {
+    visitorObject('setEmail', email);
+    visitorObject('update');
+  } else if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+    // Site tracking URL to use after inline form submission.
+    _load_script(trackcmp_url);
+  }
+  if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+};
+window._show_error = function(id, message, html) {
+  var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+  if (old_error) old_error.parentNode.removeChild(old_error);
+  err.innerHTML = message;
+  err.className = '_error-inner _form_error _no_arrow';
+  var wrapper = document.createElement('div');
+  wrapper.className = '_form-inner';
+  wrapper.appendChild(err);
+  button.parentNode.insertBefore(wrapper, button);
+  document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+  if (html) {
+    var div = document.createElement('div');
+    div.className = '_error-html';
+    div.innerHTML = html;
+    err.appendChild(div);
+  }
+};
+window._load_script = function(url, callback) {
+  var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+  script.type = 'text/javascript';
+  script.charset = 'utf-8';
+  script.src = url;
+  if (callback) {
+    script.onload = script.onreadystatechange = function() {
+      if (!r && (!this.readyState || this.readyState == 'complete')) {
+        r = true;
+        callback();
+      }
+    };
+  }
+  head.appendChild(script);
+};
+(function() {
+  if (window.location.search.search("excludeform") !== -1) return false;
+  var getCookie = function(name) {
+    var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+  var setCookie = function(name, value) {
+    var now = new Date();
+    var time = now.getTime();
+    var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+    now.setTime(expireTime);
+    document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+  }
+      var addEvent = function(element, event, func) {
+    if (element.addEventListener) {
+      element.addEventListener(event, func);
+    } else {
+      var oldFunc = element['on' + event];
+      element['on' + event] = function() {
+        oldFunc.apply(this, arguments);
+        func.apply(this, arguments);
+      };
+    }
+  }
+  var _removed = false;
+  var form_to_submit = document.getElementById('_form_3_');
+  var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+  var getUrlParam = function(name) {
+    var regexStr = '[\?&]' + name + '=([^&#]*)';
+    var results = new RegExp(regexStr, 'i').exec(window.location.href);
+    return results != undefined ? decodeURIComponent(results[1]) : false;
+  };
+
+  for (var i = 0; i < allInputs.length; i++) {
+    var regexStr = "field\\[(\\d+)\\]";
+    var results = new RegExp(regexStr).exec(allInputs[i].name);
+    if (results != undefined) {
+      allInputs[i].dataset.name = window.cfields[results[1]];
+    } else {
+      allInputs[i].dataset.name = allInputs[i].name;
+    }
+    var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+    if (fieldVal) {
+      if (allInputs[i].dataset.autofill === "false") {
+        continue;
+      }
+      if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+        if (allInputs[i].value == fieldVal) {
+          allInputs[i].checked = true;
+        }
+      } else {
+        allInputs[i].value = fieldVal;
+      }
+    }
+  }
+
+  var remove_tooltips = function() {
+    for (var i = 0; i < tooltips.length; i++) {
+      tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+    }
+    tooltips = [];
+  };
+  var remove_tooltip = function(elem) {
+    for (var i = 0; i < tooltips.length; i++) {
+      if (tooltips[i].elem === elem) {
+        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+        tooltips.splice(i, 1);
+        return;
+      }
+    }
+  };
+  var create_tooltip = function(elem, text) {
+    var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+    if (elem.type != 'radio' && elem.type != 'checkbox') {
+      tooltip.className = '_error';
+      arrow.className = '_error-arrow';
+      inner.className = '_error-inner';
+      inner.innerHTML = text;
+      tooltip.appendChild(arrow);
+      tooltip.appendChild(inner);
+      elem.parentNode.appendChild(tooltip);
+    } else {
+      tooltip.className = '_error-inner _no_arrow';
+      tooltip.innerHTML = text;
+      elem.parentNode.insertBefore(tooltip, elem);
+      new_tooltip.no_arrow = true;
+    }
+    new_tooltip.tip = tooltip;
+    new_tooltip.elem = elem;
+    tooltips.push(new_tooltip);
+    return new_tooltip;
+  };
+  var resize_tooltip = function(tooltip) {
+    var rect = tooltip.elem.getBoundingClientRect();
+    var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+    if (scrollPosition < 40) {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+    } else {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+    }
+  };
+  var resize_tooltips = function() {
+    if (_removed) return;
+    for (var i = 0; i < tooltips.length; i++) {
+      if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+    }
+  };
+  var validate_field = function(elem, remove) {
+    var tooltip = null, value = elem.value, no_error = true;
+    remove ? remove_tooltip(elem) : false;
+    if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+    if (elem.getAttribute('required') !== null) {
+      if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+        var elems = form_to_submit.elements[elem.name];
+        if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+          no_error = elem.checked;
+        }
+        else {
+          no_error = false;
+          for (var i = 0; i < elems.length; i++) {
+            if (elems[i].checked) no_error = true;
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, "Please select an option.");
+        }
+      } else if (elem.type =='checkbox') {
+        var elems = form_to_submit.elements[elem.name], found = false, err = [];
+        no_error = true;
+        for (var i = 0; i < elems.length; i++) {
+          if (elems[i].getAttribute('required') === null) continue;
+          if (!found && elems[i] !== elem) return true;
+          found = true;
+          elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+          if (!elems[i].checked) {
+            no_error = false;
+            elems[i].className = elems[i].className + ' _has_error';
+            err.push("Checking %s is required".replace("%s", elems[i].value));
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, err.join('<br/>'));
+        }
+      } else if (elem.tagName == 'SELECT') {
+        var selected = true;
+        if (elem.multiple) {
+          selected = false;
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected) {
+              selected = true;
+              break;
+            }
+          }
+        } else {
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected && !elem.options[i].value) {
+              selected = false;
+            }
+          }
+        }
+        if (!selected) {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+          tooltip = create_tooltip(elem, "Please select an option.");
+        }
+      } else if (value === undefined || value === null || value === '') {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "This field is required.");
+      }
+    }
+    if (no_error && elem.name == 'email') {
+      if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Enter a valid email address.");
+      }
+    }
+    if (no_error && /date_field/.test(elem.className)) {
+      if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Enter a valid date.");
+      }
+    }
+    tooltip ? resize_tooltip(tooltip) : false;
+    return no_error;
+  };
+  var needs_validate = function(el) {
+        if(el.getAttribute('required') !== null){
+            return true
+        }
+        if(el.name === 'email' && el.value !== ""){
+            return true
+        }
+        return false
+  };
+  var validate_form = function(e) {
+    var err = form_to_submit.querySelector('._form_error'), no_error = true;
+    if (!submitted) {
+      submitted = true;
+      for (var i = 0, len = allInputs.length; i < len; i++) {
+        var input = allInputs[i];
+        if (needs_validate(input)) {
+          if (input.type == 'text') {
+            addEvent(input, 'blur', function() {
+              this.value = this.value.trim();
+              validate_field(this, true);
+            });
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'radio' || input.type == 'checkbox') {
+            (function(el) {
+              var radios = form_to_submit.elements[el.name];
+              for (var i = 0; i < radios.length; i++) {
+                addEvent(radios[i], 'click', function() {
+                  validate_field(el, true);
+                });
+              }
+            })(input);
+          } else if (input.tagName == 'SELECT') {
+            addEvent(input, 'change', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'textarea'){
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          }
+        }
+      }
+    }
+    remove_tooltips();
+    for (var i = 0, len = allInputs.length; i < len; i++) {
+      var elem = allInputs[i];
+      if (needs_validate(elem)) {
+        if (elem.tagName.toLowerCase() !== "select") {
+          elem.value = elem.value.trim();
+        }
+        validate_field(elem) ? true : no_error = false;
+      }
+    }
+    if (!no_error && e) {
+      e.preventDefault();
+    }
+    resize_tooltips();
+    return no_error;
+  };
+  addEvent(window, 'resize', resize_tooltips);
+  addEvent(window, 'scroll', resize_tooltips);
+  window._old_serialize = null;
+  if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+  _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
+    window._form_serialize = window.serialize;
+    if (window._old_serialize) window.serialize = window._old_serialize;
+  });
+  var form_submit = function(e) {
+    e.preventDefault();
+    if (validate_form()) {
+      // use this trick to get the submit button & disable it using plain javascript
+      document.querySelector('#_form_3_submit').disabled = true;
+            var serialized = _form_serialize(document.getElementById('_form_3_'));
+      var err = form_to_submit.querySelector('._form_error');
+      err ? err.parentNode.removeChild(err) : false;
+      _load_script('https://clearlink.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+    }
+    return false;
+  };
+  addEvent(form_to_submit, 'submit', form_submit);
+})();
+
+</script></div><div data-widget="disclaimer" class="disclaimer component-margin--medium "><div class="text--p-xsmall disclaimer__disclaimer"><p>By signing up I agree to the <a href="/terms-and-conditions">Terms of Use.</a></p></div></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="1_Understand_business_accounts" id="1_Understand_business_accounts" class="page_anchor" data-label="1 Understand business accounts" data-anchor="1_Understand_business_accounts" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">1. Understand business accounts</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>In the world of bookkeeping, an account doesn’t refer to an individual bank account. Instead, an account is a record of all financial transactions of a certain type, like sales or payroll.</p>
+<p>There are five basic types of accounts:</p>
+<ul>
+<li><strong>Assets</strong>, which are the cash and resources owned by the business (e.g., accounts receivable, inventory)</li>
+<li><strong>Liabilities</strong>, which are the obligations and debts owed by the business (e.g., accounts payable, loans)</li>
+<li><strong>Revenues</strong> <strong>or income</strong>, which is the money earned by the business, usually through sales</li>
+<li><strong>Expenses or expenditures</strong>, which is the cash that flows out from the business to pay for some item or service (e.g., salaries, utilities)</li>
+<li><strong>Equity</strong>, which is the value remaining after liabilities are subtracted from assets, representing the owner’s held interest in the business (e.g., stock, retained earnings)</li>
+</ul>
+<p>Bookkeeping begins with setting up each necessary account so you can record transactions in the appropriate categories. You likely won’t have the same exact accounts as the business next door, but many accounts are common. The table below shows some frequently used small-business accounts and their types.</p>
+</div><div data-widget="manual-comparison-table" class="manual-comparison-table component-margin--medium component-background--default"><div class="manual-comparison-table__table"><div class="dynamic-table-viewport"><table 
+      cellspacing="0" 
+      cellpadding="0" 
+      class="dynamic-table is-vertical manual-comparison-table__dynamic-table" 
+      data-width="240"
+      data-width-mobile="240"
+      data-load-more="" data-full-width="1" ><tr class="dynamic-table__row"><th class="dynamic-table__cell dynamic-table__heading" width="120"><div class="dynamic-table__cell__inner">Account<span></span></div></th><th class="dynamic-table__cell dynamic-table__heading" width="120"><div class="dynamic-table__cell__inner">Account type<span></span></div></th></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Accounts payable</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Liability</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Accounts receivable</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Cash</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Dividends</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Equity</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Equipment</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Insurance expense</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Interest expense</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Interest income</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Revenue</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Interest payable</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Liability</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Inventory</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Owner’s capital</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Equity</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Real estate</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Rent expense</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Rental income</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Revenue</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Retained earnings</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Equity</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Salaries and wages</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Sales income</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Revenue</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Supplies</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Supplies expense</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Unearned service revenue</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Liability</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Utilities expense</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td></tr></table></div></div></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="2_Set_up_your_business_accounts" id="2_Set_up_your_business_accounts" class="page_anchor" data-label="2 Set up your business accounts" data-anchor="2_Set_up_your_business_accounts" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">2. Set up your business accounts</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Knowing the accounts you need to track for your business is one thing; setting them up is another. Back in the day, charts of accounts were recorded in a physical book called the general ledger (GL). But now, most businesses use computer software to record accounts. It might be a virtual record rather than a hard copy, but the overall file is still called the general ledger.</p>
+<p>There are three main methods for creating a GL:</p>
+<ul>
+<li>Spreadsheet software (e.g., Excel)</li>
+<li>Desktop accounting bookkeeping software (e.g., QuickBooks Desktop)</li>
+<li>Cloud-based bookkeeping software (e.g., <a href="https://www.business.org/finance/accounting/quickbooks-review/">QuickBooks Online</a>, Wave)</li>
+</ul>
+<p>Spreadsheet software is the cheapest option; Google Sheets doesn’t cost a monthly fee, but trying to craft your own general ledger in a spreadsheet program can spiral quickly into disaster.</p>
+<p>Desktop bookkeeping software usually requires a high up-front fee, but the software is then yours to keep. With online, <a href="https://www.business.org/finance/accounting/best-bookkeeping-software/">cloud-based bookkeeping software</a>, you have to pay a monthly fee to keep your online subscription, but it’s a much lower cost than that of desktop software.</p>
+<p>Alternatively, you can pay an accountant, bookkeeper, or <a href="https://www.business.org/finance/accounting/best-virtual-and-outsourced-bookkeeping/">outsourced accounting company</a> to manage your accounts and ledger for you.</p>
+</div><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="3_Decide_on_a_bookkeeping_method" id="3_Decide_on_a_bookkeeping_method" class="page_anchor" data-label="3 Decide on a bookkeeping method" data-anchor="3_Decide_on_a_bookkeeping_method" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">3. Decide on a bookkeeping method</h2></a>  </div>
+</div>
+<!--section start -->
+
+<div class="grid-container grid-container--pull-right   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-6 cell     "><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>If you plan to do your own books in house instead of outsourcing to an accounting or bookkeeping firm, you need to make one crucial choice before you start setting everything up: Are you going to use single-entry bookkeeping or double-entry bookkeeping?</p>
+<p>With <strong>single-entry bookkeeping</strong>, you enter each transaction only once. If a customer pays you a sum, you enter that sum in your asset column only. Makes sense, right? This method can work if your business is simple—as in, very, very simple. If you work out of your home, don’t have any equipment or inventory to offer, and don’t venture too frequently into the realm of cash transactions, you might consider single-entry bookkeeping.</p>
+<p>However, most bookkeeping is done using the <strong>double-entry accounting system</strong>, which is sort of like Newton’s Third Law of Motion, but for finances. Newton’s law holds that “for every action (in nature), there is an equal and opposite reaction.” Likewise, in double-entry accounting, any transaction in one account requires an equal and opposite entry in another account. It isn’t physics, but for managing a business, it’s just as important.</p>
+<p>In the double-entry bookkeeping system, you’ll record two entries for each transaction: a debit (Dr) and a credit (Cr). Debits and credits are recorded as journal entries in the ledger. The debit is usually recorded first (on the left), followed by the credit (on the right).</p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-6 cell     "><div data-widget="top-ranked-shortform" class="top-ranked-shortform c-padding--sm border-radius--default component-margin--xsmall  shadow--medium has-border border--top-flair component-background--default"><div class="heading--h4-alt sc-margin--md top-ranked-shortform__heading">Best Bookkeeping Software</div><div class="sc-margin--md component-separator--after component-separator--sm top-ranked-shortform__item-container"><div class="top-ranked-shortform__item"><div class="top-ranked-shortform__item-content"><a  target="_blank" href="/go/quickbooks/accounting/" rel="nofollow"><div class="text--p-medium sc-margin--md text--bold top-ranked-shortform__name">Quickbooks</div></a><div class="text--p-medium sc-margin--md top-ranked-shortform__copy">Best Overall</div></div><div class="top-ranked-shortform__item-links"><div class="button--full-width sc-margin--md top-ranked-shortform__button"><a  class="clwp-button clwp-button--primary" target="_blank" href="/go/quickbooks/accounting/" rel="nofollow">View Plans</a></div></div></div></div><div class="sc-margin--md component-separator--after component-separator--sm top-ranked-shortform__item-container"><div class="top-ranked-shortform__item"><div class="top-ranked-shortform__item-content"><a  target="_blank" href="/go/wave/accounting/" rel="nofollow"><div class="text--p-medium sc-margin--md text--bold top-ranked-shortform__name">Wave</div></a><div class="text--p-medium sc-margin--md top-ranked-shortform__copy">Best for Freelancers</div></div><div class="top-ranked-shortform__item-links"><div class="button--full-width sc-margin--md top-ranked-shortform__button"><a  class="clwp-button clwp-button--primary" target="_blank" href="/go/wave/accounting/" rel="nofollow">View Plans</a></div></div></div></div><div class="sc-margin--md component-separator--after component-separator--sm top-ranked-shortform__item-container"><div class="top-ranked-shortform__item"><div class="top-ranked-shortform__item-content"><a  target="_blank" href="/go/odoo/accounting/bookkeeping/" rel="nofollow"><div class="text--p-medium sc-margin--md text--bold top-ranked-shortform__name">Odoo</div></a><div class="text--p-medium sc-margin--md top-ranked-shortform__copy">Best for Global Ventures</div></div><div class="top-ranked-shortform__item-links"><div class="button--full-width sc-margin--md top-ranked-shortform__button"><a  class="clwp-button clwp-button--primary" target="_blank" href="/go/odoo/accounting/bookkeeping/" rel="nofollow">View Plans</a></div></div></div></div><div class="sc-margin--md component-separator--after component-separator--sm top-ranked-shortform__item-container"><div class="top-ranked-shortform__item"><div class="top-ranked-shortform__item-content"><a  target="_blank" href="/go/xero/accounting/" rel="nofollow"><div class="text--p-medium sc-margin--md text--bold top-ranked-shortform__name">Xero</div></a><div class="text--p-medium sc-margin--md top-ranked-shortform__copy">Best for Midsize</div></div><div class="top-ranked-shortform__item-links"><div class="button--full-width sc-margin--md top-ranked-shortform__button"><a  class="clwp-button clwp-button--primary" target="_blank" href="/go/xero/accounting/" rel="nofollow">View Plans</a></div></div></div></div><div class="sc-margin--md component-separator--after component-separator--sm top-ranked-shortform__item-container"><div class="top-ranked-shortform__item"><div class="top-ranked-shortform__item-content"><a  target="_blank" href="/go/freshbooks/accounting/" rel="nofollow"><div class="text--p-medium sc-margin--md text--bold top-ranked-shortform__name">Freshbooks</div></a><div class="text--p-medium sc-margin--md top-ranked-shortform__copy">Best for Invoicing</div></div><div class="top-ranked-shortform__item-links"><div class="button--full-width sc-margin--md top-ranked-shortform__button"><a  class="clwp-button clwp-button--primary" target="_blank" href="/go/freshbooks/accounting/" rel="nofollow">View Plans</a></div></div></div></div></div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/accounting/best-bookkeeping-software/">Learn more</a> about our top brands.</p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+<div data-widget="callout-box" class="callout-box border-radius--rounded component-margin--medium  shadow--default component-background--default"><div class="c-padding--sm callout-box__container"><div class="callout-box__content-icon"><img alt="Pricetag" class="clwp-icon lazy-image clwp-icon--xxlg" data-src="https://www.business.org/app/themes/coolwhip-child/assets/icons/callout-box/content/pricetag.svg" width="104"/></div><div class="callout-box__content"><div class="heading--h4-alt sc-margin--md callout-box__heading">Look out</div><div class="text--p-medium sc-margin--md callout-box__copy">A debit doesn’t necessarily mean cash is flowing out; likewise, a credit isn’t necessarily money you’ve earned. The type of account defines whether a transaction either debits or credits that account.</div></div></div></div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Double-entry bookkeeping is definitely more challenging than single-entry bookkeeping, but don’t let the difficulty deter you. Double entry ensures your books are always balanced, which means you’ll be tipped off immediately if profits start dipping. Plus, most <a href="https://www.business.org/finance/accounting/best-small-business-accounting-software/">accounting software</a> starts you off with double-entry bookkeeping anyway. With the software all ready to go, you can tackle double-entry bookkeeping with no sweat.</p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="4_Record_every_financial_transaction" id="4_Record_every_financial_transaction" class="page_anchor" data-label="4 Record every financial transaction" data-anchor="4_Record_every_financial_transaction" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">4. Record every financial transaction</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>You’ve created your set of financial accounts and picked a bookkeeping system—now it’s time to record what’s actually happening with your money.</p>
+<p>It’s crucial that each debit and credit transaction is recorded <em>correctly</em> and <em>in the right account</em>. Otherwise, your account balances won’t match and you won’t be able to close your books.</p>
+</div><div data-widget="manual-comparison-table" class="manual-comparison-table component-margin--medium component-background--default"><div class="manual-comparison-table__table"><div class="dynamic-table-viewport"><table 
+      cellspacing="0" 
+      cellpadding="0" 
+      class="dynamic-table is-vertical manual-comparison-table__dynamic-table" 
+      data-width="360"
+      data-width-mobile="360"
+      data-load-more="" data-full-width="1" ><tr class="dynamic-table__row"><th class="dynamic-table__cell dynamic-table__heading" width="120"><div class="dynamic-table__cell__inner">Account type<span></span></div></th><th class="dynamic-table__cell dynamic-table__heading" width="120"><div class="dynamic-table__cell__inner">Debit recorded for . . .<span></span></div></th><th class="dynamic-table__cell dynamic-table__heading" width="120"><div class="dynamic-table__cell__inner">Credit recorded for . . .<span></span></div></th></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Asset</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Increase</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Decrease</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Liability</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Decrease</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Increase</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Revenue</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Decrease</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Increase</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Expense</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Increase</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Decrease</p>
+</td></tr><tr class="dynamic-table__row"><td class="dynamic-table__cell dynamic-table__cell--text"><p>Equity</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Decrease</p>
+</td><td class="dynamic-table__cell dynamic-table__cell--text"><p>Increase</p>
+</td></tr></table></div></div></div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>To record a transaction, first determine the accounts that will be debited and credited. For example, imagine that you’ve just purchased a new <a href="https://www.business.org/software/best-pos-systems-for-business/">point-of-sale system</a> for your retail business. You paid for the system, which cost $2,000, in cash.</p>
+<p>The transaction will affect two accounts: cash (an asset account) and equipment (also an asset). Because you’re decreasing your cash and increasing your equipment, you would record a $2,000 debit (on the left) for the equipment account and a $2,000 credit for the cash account (on the right).</p>
+<p>Note that journal entries don’t include specific details about the item, vendor, or biller; you just track debits and credits by account.</p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="5_Balance_the_books" id="5_Balance_the_books" class="page_anchor" data-label="5 Balance the books" data-anchor="5_Balance_the_books" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">5. Balance the books</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>The last step in basic bookkeeping is to balance and close the books. When you tally up account debits and credits—often at the end of the quarter or year—the totals should match. This means that your books are “balanced.”</p>
+<p>You have been recording journal entries to accounts as debits and credits. At the end of the period, you’ll “post” these entries to the accounts themselves in the general ledger and adjust the account balances accordingly.</p>
+<p>For example, if over the course of the month your cash account has had $3,000 in debits (increases) and $5,000 in credits (decreases), you would adjust the cash account balance by a total of $2,000 (as a decrease).</p>
+<p>Follow this method to adjust the balances for each account in your ledger. At the end of this process, you’ll have what’s called an “adjusted trial balance.” When you combine accounts types, the adjusted balances should meet the accounting equation:</p>
+<p><strong>Assets = Liabilities + Equity</strong></p>
+<p>If two sides of the equations don’t match, you’ll need to go back through the ledger and journal entries to find errors. Post corrected entries in the journal and ledger, then follow the process again until the accounts are balanced. Then you’re ready to close the books and prepare financial reports.</p>
+</div><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="6_Prepare_financial_reports" id="6_Prepare_financial_reports" class="page_anchor" data-label="6 Prepare financial reports" data-anchor="6_Prepare_financial_reports" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">6. Prepare financial reports</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Now that you’ve balanced your books, you need to take a closer look at what those books <em>mean</em>. Summarizing the flow of money in each account creates a picture of your company’s financial health. You can then use that picture to make decisions about your business’s future.<br />Here are some of the most common financial reports created in bookkeeping:</p>
+<ul>
+<li><a href="https://www.business.org/finance/accounting/what-is-a-balance-sheet/">Balance sheet</a>. This document summarizes your business’s assets, liabilities, and equity at a single period of time. Your total assets should equal the sum of all liabilities and equity accounts. The balance sheet provides a look at the current health of your business and whether it has the ability to expand or needs to reserve cash.</li>
+<li><a href="https://www.business.org/finance/accounting/how-to-prepare-a-profit-and-loss-statement/">Profit and loss (P&amp;L) statement</a>. Also called an <em>income statement</em>, this report breaks down business revenues, costs, and expenses over a period of time (e.g., quarter). The P&amp;L helps you compare your sales and expenses and make forecasts.</li>
+<li><a href="https://www.business.org/finance/accounting/what-is-a-cash-flow-statement/">Cash flow statement</a>. The statement of cash flow is similar to the P&amp;L, but it doesn’t include any non-cash items such as depreciation. Cash flow statements help show where your business is earning and spending money and its immediate viability and ability to pay its bills.</li>
+</ul>
+<p>Bookkeeping software helps you prepare these financial reports, many in real-time. This can be a lifeline for small-business owners who need to make quick financial decisions based on the immediate health of their business.</p>
+</div><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="7_Stick_to_a_schedule" id="7_Stick_to_a_schedule" class="page_anchor" data-label="7 Stick to a schedule" data-anchor="7_Stick_to_a_schedule" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">7. Stick to a schedule</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>At least once a week, record all financial transactions, including incoming invoices, bill payments, sales, and purchases. And make it a priority to close your books regularly too. You may do this every month, but at the very least, balance and close your books every quarter.</p>
+<p>Another pro tip? Make sure to tackle your books when your mind is fresh and engaged—say, at the start of the day before you open your doors rather than late at night, after you’ve closed up shop. You want to be at your best when you’re looking at figures that explain your business’s profitability and help you chart a course for progress.</p>
+<p>Plus, doing the books earlier in the day can help you minimize the temptation to put off bookkeeping until the next day . . . and then the day after that.</p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="8_Store_records_securely" id="8_Store_records_securely" class="page_anchor" data-label="8 Store records securely" data-anchor="8_Store_records_securely" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">8. Store records securely</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Proper record-keeping for small businesses makes the process easier and keeps you compliant with the law. You never want to waste time chasing down last month’s missing invoice, and you certainly don’t want to find yourself in trouble with legal requirements. Visit SBA.gov to find out more about how small businesses can <a href="https://www.sba.gov/business-guide/manage-your-business/stay-legally-compliant" target="_blank" rel="noopener">stay legally compliant</a>.</p>
+</div><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="9_Dont_go_it_alone" id="9_Dont_go_it_alone" class="page_anchor" data-label="9 Dont go it alone" data-anchor="9_Dont_go_it_alone" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">9. Don't go it alone</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Unless you’re specially trained in accounting principles, bookkeeping can be a challenging task. So consider getting help—whether by hiring a bookkeeper, outsourcing to an accounting service, or using accounting software.</p>
+</div><div data-widget="shortcode" class="shortcode component-margin--medium ">		<div class="elementor-shortcode"><!-- START: BuyerZone Widget Code-->
+<script data-bzwidget
+	src="https://cdn.buyerzone.com/apps/widget/bzWidget.min.js"
+	data-bzwidget-pub-id="55517"
+	data-bzwidget-color-palette-name="neptune"
+	data-bzwidget-keyword-id="bookkeeping-basics"
+	data-bzwidget-category-id="10057"
+></script>
+<script>bzWidget.init();</script>
+<!-- END: BuyerZone Widget Code--></div>
+		</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     ">
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="FAQs" id="FAQs" class="page_anchor" data-label="FAQs" data-anchor="FAQs" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">FAQs</h2></a><h3 class="clwp-heading clwp-heading--h3 clwp-heading--subheading">Why is small-business bookkeeping important?</h3>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Bookkeeping is essential to the vitality and long-term success of any small business. How? Primarily, you need to have an accurate picture of all the financial ins and outs of your business. From the cash you have on hand to the debts you owe, <strong>understanding the state of your business’s finances means you can make better decisions and plan for the future</strong>.</p>
+<p>Accurate bookkeeping also protects your business. For example, you may find yourself in a dispute with a vendor or under audit by the government. Without clean financial records, you may be at risk of paying settlements or tax penalties for avoidable financial errors. You also may be able to prevent or uncover fraud, whether from customers, vendors, or employees.</p>
+<p>Bookkeeping also saves you time. From payroll taxes to managing invoices, efficient bookkeeping smooths out the process of all your business’s financial tasks and keeps you from wasting time tracking down every dollar.</p>
+</div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h3 class="clwp-heading clwp-heading--h3">When do I need extra bookkeeping help?</h3></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>If you’re a small-business owner, you’re probably used to doing everything yourself. You’ve used your entrepreneurial prowess to produce a product or service that your customers need. And avoiding spending any money when you think you can just take care of a task yourself is tempting.</p>
+<p>But bookkeeping mistakes are costly and threaten success. For instance, ever looked at your bank statements and thought, Where is all the money we made this month? Then it’s time to get help with bookkeeping.</p>
+<p>As a small-business owner, you have a few cost-effective bookkeeping solutions:</p>
+<ul>
+<li>Hiring an in-house accountant or bookkeeper</li>
+<li>Investing in bookkeeping or accounting software</li>
+<li>Outsourcing your bookkeeping to a third-party company</li>
+</ul>
+<p>Both in-house and outsourced bookkeepers are pretty expensive, but since they handle every bookkeeping task for you, they take a lot of time, effort, and worry off your plate. If you need a cheaper solution, though, bookkeeping software takes care of the basics without foisting too much manual work on you: they reconcile bank transactions, adjust account balances, and generate financial statements.</p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="page-anchor" class="page-anchor component-margin--none "><a name="The_takeaway" id="The_takeaway" class="page_anchor" data-label="The takeaway" data-anchor="The_takeaway" ></a></div><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <h2 class="clwp-heading clwp-heading--h2">The takeaway</h2></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p>Whether you take on your small-business bookkeeping yourself or get help from an expert, understanding the basics will help you better manage your finances. You’ll save time chasing receipts, protect yourself from costly errors, and gain valuable insights into your business’s potential.</p>
+<p><em>Want more bookkeeping tips? Expand your bookkeeping knowledge by brushing up on the <a href="https://www.business.org/finance/accounting/top-bookkeeping-errors-costing-business-money/">most common bookkeeping errors</a> (and how to avoid them).</em></p>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><strong>Disclaimer</strong></p>
+<p><em>At Business.org, our research is meant to offer general product and service recommendations. We don't guarantee that our suggestions will work best for each individual or business, so consider your unique needs when choosing products and services.</em></p>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--xlarge">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="social-share" class="social-share social-share--align-default component-margin--xlarge "><div class="text--p-xsmall sc-margin--none sc-gutter--right-sm social-share__heading">Share Article</div>
+<button data-sharer="facebook"
+          class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button"
+          data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/">
+    <img alt="Social Facebook O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+Yml0L2ljb24vc3lzdGVtL3NvY2lhbC9mYWNlYm9vazwvdGl0bGU+CiAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImJvcmcvY29tcG9uZW50L2dsb2JhbC9hdXRob3ItYmlvLy1sYXJnZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYzNi4wMDAwMDAsIC00MS4wMDAwMDApIiBmaWxsPSIjMUIyQTk4Ij4KICAgICAgICAgICAgPGcgaWQ9IkRhdGUtSW5mbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJlbGVtZW50L2dsb2JhbC9zb2NpYWwtaWNvbnMvYXV0aG9yLWJpbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCA0MS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iYml0L2ljb24vc3lzdGVtL3NvY2lhbC9mYWNlYm9vayIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDkuMDAwMDAwLCAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTIsMCBDMTguNjI3MzY4NCwwIDI0LDUuMzcyNjMxNTggMjQsMTIgQzI0LDE4LjYyNzM2ODQgMTguNjI3MzY4NCwyNCAxMiwyNCBDNS4zNzI2MzE1OCwyNCAwLDE4LjYyNzM2ODQgMCwxMiBDMCw1LjM3MjYzMTU4IDUuMzcyNjMxNTgsMCAxMiwwIFogTTEyLDEuNiBDNi4yNTYyODcxOCwxLjYgMS42LDYuMjU2Mjg3MTggMS42LDEyIEMxLjYsMTcuNzQzNzEyOCA2LjI1NjI4NzE4LDIyLjQgMTIsMjIuNCBDMTcuNzQzNzEyOCwyMi40IDIyLjQsMTcuNzQzNzEyOCAyMi40LDEyIEMyMi40LDYuMjU2Mjg3MTggMTcuNzQzNzEyOCwxLjYgMTIsMS42IFogTTEzLjI5ODA4MDYsNC44IEMxNC4xOTk1NDYyLDQuOCAxNC45NzQxNTMxLDQuODY3MDgxMzQgMTUuMiw0Ljg5NzA2NjEzIEwxNS4yLDcuMTAxNTI0MzMgTDEzLjg5NDg5MzEsNy4xMDIxMDA5NiBDMTIuODcxNTY2Miw3LjEwMjEwMDk2IDEyLjY3MzM5NzYsNy41ODgzOTI2NCAxMi42NzMzOTc2LDguMzAyMDY4OTMgTDEyLjY3MzM5NzYsOS44NzU2OTM0MiBMMTUuMTE0MDgyMSw5Ljg3NTY5MzQyIEwxNC43OTYxNjY1LDEyLjM0MDIxMiBMMTIuNjczMzk3NiwxMi4zNDAyMTIgTDEyLjY3MzM5NzYsMTguNjY0NTAyNSBMMTAuMTI4MTUwOCwxOC42NjQ1MDI1IEwxMC4xMjgxNTA4LDEyLjM0MDIxMiBMOCwxMi4zNDAyMTIgTDgsOS44NzU2OTM0MiBMMTAuMTI4MTUwOCw5Ljg3NTY5MzQyIEwxMC4xMjgxNTA4LDguMDU3OTYyMDQgQzEwLjEyODE1MDgsNS45NDg2NDc4NSAxMS40MTY1MzU0LDQuOCAxMy4yOTgwODA2LDQuOCBaIiBpZD0iRmFjZWJvb2siPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="/></button>
+
+<button data-sharer="twitter"
+        data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/"
+        data-title="Small-Business Bookkeeping Basics: Here’s What You Need to Know"
+        data-via="businessdotorg"
+        class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button">
+  <img alt="Social Twitter O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjMUIyQTk4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiwwIEMxOC42MjczNjg0LDAgMjQsNS4zNzI2MzE1OCAyNCwxMiBDMjQsMTguNjI3MzY4NCAxOC42MjczNjg0LDI0IDEyLDI0IEM1LjM3MjYzMTU4LDI0IDAsMTguNjI3MzY4NCAwLDEyIEMwLDUuMzcyNjMxNTggNS4zNzI2MzE1OCwwIDEyLDAgWiBNMTIsMS42IEM2LjI1NjI4NzE4LDEuNiAxLjYsNi4yNTYyODcxOCAxLjYsMTIgQzEuNiwxNy43NDM3MTI4IDYuMjU2Mjg3MTgsMjIuNCAxMiwyMi40IEMxNy43NDM3MTI4LDIyLjQgMjIuNCwxNy43NDM3MTI4IDIyLjQsMTIgQzIyLjQsNi4yNTYyODcxOCAxNy43NDM3MTI4LDEuNiAxMiwxLjYgWiBNMTQuNzA3OTI2Myw3LjIgQzE1LjQxNjA2MTQsNy4yIDE2LjA1NjAxMzcsNy40OTkwMzgxIDE2LjUwNTAxODMsNy45NzczOTE2OSBDMTcuMDY1ODcxMyw3Ljg2Njk3NDg3IDE3LjU5MjcyMjQsNy42NjIwNjg0NSAxOC4wNjgzOTE2LDcuMzgwMDMxMzIgQzE3Ljg4NDYwMjIsNy45NTQ4NDMwNCAxNy40OTQyOTU3LDguNDM3MzEyNjUgMTYuOTg1ODc3Myw4Ljc0MjA3NzQgQzE3LjQ4MzkxNjIsOC42ODI0ODQ1MyAxNy45NTgzMzI3LDguNTUwMjM0ODggMTguNCw4LjM1NDQ1NTMgQzE4LjA3MDAwMjIsOC44NDgxOTkyNCAxNy42NTI0OTQyLDkuMjgxODEzNDQgMTcuMTcxNDU2Myw5LjYyODgxMjE3IEMxNy4xNzYyODgxLDkuNzM0Mzk3MTQgMTcuMTc4NjE0Niw5Ljg0MDY5NzkzIDE3LjE3ODYxNDYsOS45NDczNTY2NSBDMTcuMTc4NjE0NiwxMy4yMDA2MjY0IDE0LjcwMjM3ODYsMTYuOTUyMTEzOSAxMC4xNzM4NTczLDE2Ljk1MjExMzkgQzguNzgzNTM1OSwxNi45NTIxMTM5IDcuNDg5NDkzNywxNi41NDQ2Mjc1IDYuNCwxNS44NDU5NzcyIEM2LjU5MjU1ODM1LDE1Ljg2ODcwNDggNi43ODg1MTY4OSwxNS44ODA1MTYgNi45ODcxNTk3OSwxNS44ODA1MTYgQzguMTQwNzIwMywxNS44ODA1MTYgOS4yMDIyOTY2MiwxNS40ODY4MDkzIDEwLjA0NDgyODksMTQuODI2NDU1OSBDOC45Njc1MDQyOSwxNC44MDY3NzA2IDguMDU4Mzk5ODIsMTQuMDk0ODc3MyA3Ljc0NTA0NTExLDEzLjExNjg3NDIgQzcuODk1MzY5NDcsMTMuMTQ1NTA3NCA4LjA0OTYzMDksMTMuMTYwODk3OCA4LjIwODE4NzMxLDEzLjE2MDg5NzggQzguNDMyNzc5MDYsMTMuMTYwODk3OCA4LjY1MDIxMjUxLDEzLjEzMDgzMjkgOC44NTY5MDg1MSwxMy4wNzQ2NDAyIEM3LjczMDU0OTU1LDEyLjg0ODQzNzggNi44ODE5MzI3NCwxMS44NTM0MzM3IDYuODgxOTMyNzQsMTAuNjYwNTAyNiBDNi44ODE5MzI3NCwxMC42NTAxMjMgNi44ODE5MzI3NCwxMC42Mzk5MjI1IDYuODgyMTExNywxMC42Mjk1NDI5IEM3LjIxNDA3OCwxMC44MTQwNDgyIDcuNTkzNjQ3MDEsMTAuOTI0NjQzOSA3Ljk5NzE5NjMzLDEwLjkzNzUyODkgQzcuMzM2NjYzOTMsMTAuNDk2MDQwNiA2LjkwMTk3NTk5LDkuNzQyNDUwMjMgNi45MDE5NzU5OSw4Ljg4ODI4NTc0IEM2LjkwMTk3NTk5LDguNDM3MTMzNyA3LjAyMzQ4ODE4LDguMDE0MjU2OTUgNy4yMzUzNzM5NSw3LjY1MDYxNTE3IEM4LjQ0OTYwMTA3LDkuMTQwMDc5MDQgMTAuMjYzNjk0LDEwLjEyMDIyOTcgMTIuMzA5NzE1OSwxMC4yMjI5NTEzIEMxMi4yNjc4Mzk4LDEwLjA0Mjc0MSAxMi4yNDYwMDcsOS44NTQ4MzU1OCAxMi4yNDYwMDcsOS42NjE5MTkzMiBDMTIuMjQ2MDA3LDguMzAyMTk5NjkgMTMuMzQ4Mzg1Nyw3LjIgMTQuNzA3OTI2Myw3LjIgWiIvPgo8L3N2Zz4K"/></button>
+
+<button data-sharer="linkedin"
+        data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/"
+        class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button">
+  <img alt="Social Linkedin O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjMUIyQTk4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiwxLjQyMTA4NTQ3ZS0xNCBDMTguNjI3MzY4NCwxLjQyMTA4NTQ3ZS0xNCAyNCw1LjM3MjYzMTU4IDI0LDEyIEMyNCwxOC42MjczNjg0IDE4LjYyNzM2ODQsMjQgMTIsMjQgQzUuMzcyNjMxNTgsMjQgMS4xMzI0Mjc0OWUtMTQsMTguNjI3MzY4NCAxLjEzMjQyNzQ5ZS0xNCwxMiBDMS4xMzI0Mjc0OWUtMTQsNS4zNzI2MzE1OCA1LjM3MjYzMTU4LDEuNDIxMDg1NDdlLTE0IDEyLDEuNDIxMDg1NDdlLTE0IFogTTEyLDEuNiBDNi4yNTYyODcxOCwxLjYgMS42LDYuMjU2Mjg3MTggMS42LDEyIEMxLjYsMTcuNzQzNzEyOCA2LjI1NjI4NzE4LDIyLjQgMTIsMjIuNCBDMTcuNzQzNzEyOCwyMi40IDIyLjQsMTcuNzQzNzEyOCAyMi40LDEyIEMyMi40LDYuMjU2Mjg3MTggMTcuNzQzNzEyOCwxLjYgMTIsMS42IFogTTkuMDcyMjEyNSw5LjU1ODQ2MjUgTDkuMDcyMjEyNSwxNy41MjE5NjI1IEw2LjU5NzIxMjUsMTcuNTIxOTYyNSBMNi41OTcyMTI1LDkuNTU4NDYyNSBMOS4wNzIyMTI1LDkuNTU4NDYyNSBaIE0xNS4zNzM1MjUsOS4zNjA0MjUgQzE3Ljg3OTgzNzUsOS4zNjA0MjUgMTguMzQyNTg3NSwxMS4wMTAwNSAxOC4zNDI1ODc1LDEzLjE1MzkyNSBMMTguMzQyNTg3NSwxNy41MjE5MjUgTDE1Ljg2OTI3NSwxNy41MjE5MjUgTDE1Ljg2OTI3NSwxMy42NDkxMTI1IEMxNS44NjkyNzUsMTIuNzI1ODYyNSAxNS44NTIyMTI1LDExLjUzNzg2MjUgMTQuNTgzMDI1LDExLjUzNzg2MjUgQzEzLjI5NTI3NSwxMS41Mzc4NjI1IDEzLjA5NzQ2MjUsMTIuNTQzOCAxMy4wOTc0NjI1LDEzLjU4MjM2MjUgTDEzLjA5NzQ2MjUsMTcuNTIxOTI1IEwxMC42MjQ3MTI1LDE3LjUyMTkyNSBMMTAuNjI0NzEyNSw5LjU1ODQyNSBMMTIuOTk4NjUsOS41NTg0MjUgTDEyLjk5ODY1LDEwLjY0NjY3NSBMMTMuMDMxODM3NSwxMC42NDY2NzUgQzEzLjM2MjIxMjUsMTAuMDIwNDI1IDE0LjE2OTQsOS4zNjA0MjUgMTUuMzczNTI1LDkuMzYwNDI1IFogTTcuODM1NDYyNSw1LjU5OTk2MjUgQzguNjI2NzEyNSw1LjU5OTk2MjUgOS4yNjk0NjI1LDYuMjQzMDg3NSA5LjI2OTQ2MjUsNy4wMzQ1MjUgQzkuMjY5NDYyNSw3LjgyNjcxMjUgOC42MjY3MTI1LDguNDY5ODM3NSA3LjgzNTQ2MjUsOC40Njk4Mzc1IEM3LjA0MjE1LDguNDY5ODM3NSA2LjM5OTk2MjUsNy44MjY3MTI1IDYuMzk5OTYyNSw3LjAzNDUyNSBDNi4zOTk5NjI1LDYuMjQzMDg3NSA3LjA0MjE1LDUuNTk5OTYyNSA3LjgzNTQ2MjUsNS41OTk5NjI1IFoiLz4KPC9zdmc+Cg=="/></button>
+
+<button data-sharer="email"
+        data-url="https://www.business.org/finance/accounting/small-business-bookkeeping-basics/"
+        data-title="Small-Business Bookkeeping Basics: Here’s What You Need to Know"
+        data-to="mybestfriend@example.com"
+        class="sharer sc-gutter--right-sm clwp-icon--md sc-display--inline-block social-share__button">
+  <img alt="Social Email O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+Yml0L2ljb24vc3lzdGVtL3NvY2lhbC9lbWFpbDwvdGl0bGU+CiAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImJvcmcvY29tcG9uZW50L2dsb2JhbC9hdXRob3ItYmlvLy1sYXJnZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc0NC4wMDAwMDAsIC00MS4wMDAwMDApIiBmaWxsPSIjMUIyQTk4Ij4KICAgICAgICAgICAgPGcgaWQ9IkRhdGUtSW5mbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJlbGVtZW50L2dsb2JhbC9zb2NpYWwtaWNvbnMvYXV0aG9yLWJpbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCA0MS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0OS4wMDAwMDAsIDAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJiaXQvaWNvbi9zeXN0ZW0vc29jaWFsL2VtYWlsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDguMDAwMDAwLCAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyLDAgQzE4LjYyNzM2ODQsMCAyNCw1LjM3MjYzMTU4IDI0LDEyIEMyNCwxOC42MjczNjg0IDE4LjYyNzM2ODQsMjQgMTIsMjQgQzUuMzcyNjMxNTgsMjQgMCwxOC42MjczNjg0IDAsMTIgQzAsNS4zNzI2MzE1OCA1LjM3MjYzMTU4LDAgMTIsMCBaIE0xMiwxLjYgQzYuMjU2Mjg3MTgsMS42IDEuNiw2LjI1NjI4NzE4IDEuNiwxMiBDMS42LDE3Ljc0MzcxMjggNi4yNTYyODcxOCwyMi40IDEyLDIyLjQgQzE3Ljc0MzcxMjgsMjIuNCAyMi40LDE3Ljc0MzcxMjggMjIuNCwxMiBDMjIuNCw2LjI1NjI4NzE4IDE3Ljc0MzcxMjgsMS42IDEyLDEuNiBaIE0xNy43Niw2LjQgQzE4LjU1Miw2LjQgMTkuMiw3LjAxOTQxMTc2IDE5LjIsNy43NzY0NzA1OSBMMTkuMiw3Ljc3NjQ3MDU5IEwxOS4yLDE2LjAzNTI5NDEgQzE5LjIsMTYuNzkyMzUyOSAxOC41NTIsMTcuNDExNzY0NyAxNy43NiwxNy40MTE3NjQ3IEwxNy43NiwxNy40MTE3NjQ3IEw2LjI0LDE3LjQxMTc2NDcgQzUuNDQ4LDE3LjQxMTc2NDcgNC44LDE2Ljc5MjM1MjkgNC44LDE2LjAzNTI5NDEgTDQuOCwxNi4wMzUyOTQxIEw0LjgsNy43NzY0NzA1OSBDNC44LDcuMDE5NDExNzYgNS40NDgsNi40IDYuMjQsNi40IEw2LjI0LDYuNCBaIE0xNy43Niw5LjE1Mjk0MTE4IEwxMiwxMi41OTQxMTc2IEw2LjI0LDkuMTUyOTQxMTggTDYuMjQsMTYuMDM1Mjk0MSBMMTcuNzYsMTYuMDM1Mjk0MSBMMTcuNzYsOS4xNTI5NDExOCBaIE0xNy43Niw3Ljc3NjQ3MDU5IEw2LjI0LDcuNzc2NDcwNTkgTDEyLDExLjIxMDc2NDcgTDE3Ljc2LDcuNzc2NDcwNTkgWiIgaWQ9IkVtYWlsIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="/></button>
+</div><div data-widget="author-bio" class="author-bio component-margin--medium component-background--default">
+<div class="author-bio__image">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://www.business.org/app/uploads/2020/09/Borg-staff-avi-150x150.png" class="lazy-image avatar photo custom" alt="Business.org Staff Writer" /></div>
+
+<div class="text--p-medium author-bio__content">
+
+  
+    <div class="sc-margin--xsm author-bio__before-name">
+      Written by    </div>
+
+  
+  <div class="text--bold text--p-large sc-margin--sm author-bio__author-name">
+    Business.org Staff Writer  </div>
+
+  
+  
+    <div class="sc-margin--sm author-bio__read-more-container">
+      <a href="https://www.business.org/author/staff-writer/" class="link--secondary-link author-bio__read-more">
+        Read More      </a>
+    </div>
+
+  
+  
+    <div class="author-bio__social-icons">
+      <a href="mailto:editorial@business.org" target="_blank" rel="nofollow" class="sc-gutter--right-lg clwp-icon--md sc-display--inline-block author-bio__social-icon"><img alt="Icon Social Email O  Dark" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+Yml0L2ljb24vc3lzdGVtL3NvY2lhbC9lbWFpbDwvdGl0bGU+CiAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImJvcmcvY29tcG9uZW50L2dsb2JhbC9hdXRob3ItYmlvLy1sYXJnZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc0NC4wMDAwMDAsIC00MS4wMDAwMDApIiBmaWxsPSIjMUIyQTk4Ij4KICAgICAgICAgICAgPGcgaWQ9IkRhdGUtSW5mbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJlbGVtZW50L2dsb2JhbC9zb2NpYWwtaWNvbnMvYXV0aG9yLWJpbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCA0MS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0OS4wMDAwMDAsIDAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJiaXQvaWNvbi9zeXN0ZW0vc29jaWFsL2VtYWlsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDguMDAwMDAwLCAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyLDAgQzE4LjYyNzM2ODQsMCAyNCw1LjM3MjYzMTU4IDI0LDEyIEMyNCwxOC42MjczNjg0IDE4LjYyNzM2ODQsMjQgMTIsMjQgQzUuMzcyNjMxNTgsMjQgMCwxOC42MjczNjg0IDAsMTIgQzAsNS4zNzI2MzE1OCA1LjM3MjYzMTU4LDAgMTIsMCBaIE0xMiwxLjYgQzYuMjU2Mjg3MTgsMS42IDEuNiw2LjI1NjI4NzE4IDEuNiwxMiBDMS42LDE3Ljc0MzcxMjggNi4yNTYyODcxOCwyMi40IDEyLDIyLjQgQzE3Ljc0MzcxMjgsMjIuNCAyMi40LDE3Ljc0MzcxMjggMjIuNCwxMiBDMjIuNCw2LjI1NjI4NzE4IDE3Ljc0MzcxMjgsMS42IDEyLDEuNiBaIE0xNy43Niw2LjQgQzE4LjU1Miw2LjQgMTkuMiw3LjAxOTQxMTc2IDE5LjIsNy43NzY0NzA1OSBMMTkuMiw3Ljc3NjQ3MDU5IEwxOS4yLDE2LjAzNTI5NDEgQzE5LjIsMTYuNzkyMzUyOSAxOC41NTIsMTcuNDExNzY0NyAxNy43NiwxNy40MTE3NjQ3IEwxNy43NiwxNy40MTE3NjQ3IEw2LjI0LDE3LjQxMTc2NDcgQzUuNDQ4LDE3LjQxMTc2NDcgNC44LDE2Ljc5MjM1MjkgNC44LDE2LjAzNTI5NDEgTDQuOCwxNi4wMzUyOTQxIEw0LjgsNy43NzY0NzA1OSBDNC44LDcuMDE5NDExNzYgNS40NDgsNi40IDYuMjQsNi40IEw2LjI0LDYuNCBaIE0xNy43Niw5LjE1Mjk0MTE4IEwxMiwxMi41OTQxMTc2IEw2LjI0LDkuMTUyOTQxMTggTDYuMjQsMTYuMDM1Mjk0MSBMMTcuNzYsMTYuMDM1Mjk0MSBMMTcuNzYsOS4xNTI5NDExOCBaIE0xNy43Niw3Ljc3NjQ3MDU5IEw2LjI0LDcuNzc2NDcwNTkgTDEyLDExLjIxMDc2NDcgTDE3Ljc2LDcuNzc2NDcwNTkgWiIgaWQ9IkVtYWlsIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="/></a>    </div>
+
+
+</div>
+</div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--large">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <div class="clwp-heading clwp-heading--h4-alt">Related Articles</div></a>  </div>
+</div><div data-widget="archive-four-up" class="archive-four-up flow-grid flow-grid-gutter--md flow-grid--medium-4 component-margin--medium ">    <div class="archive-four-up__item">
+      <a href="https://www.business.org/finance/payment-processing/costco-merchant-services-review/" target="_self" class="sc-margin--md sc-display--block archive-four-up__image">
+        <img width="300" height="193" data-cached="1" src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwNDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUX/wAARCAAnADwDASIAAhEBAxEB/8QAGwAAAwADAQEAAAAAAAAAAAAAAAMEAQIFBgf/xAAhEAACAwACAgIDAAAAAAAAAAAAAQIDEQQhEjETQSJRYf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAXEQEBAQEAAAAAAAAAAAAAAAAAARES/9oADAMBAAIRAxEAPwD5VCtl/GrejlxM+imjj59E6rFXFj6OvQ8SIKIYWQl4oWjlVOeI5vKs9jrbsXs5nIu9hKqRFypbpzJP8mV32bpDJ9lwq9c+Iv0bR46j9F7ihU8Rha0kIS8ULnb4mbbEtIbbQlPG11/T7ILrG9GSl5CZQ0ejEs9Yhw7LnSafD/CtRj1Sv1CrLugAzqohutI5S1gA4BFaOjVoAJcZ+E0dXYAEGP/Z" data-src="https://www.business.org/app/uploads/2020/11/iStock-466684502-300x193.jpg" data-large="https://www.business.org/app/uploads/2020/11/iStock-466684502-scaled.jpg" class="lazy-image" alt="" />      </a>
+      <div class="archive-four-up__content">
+
+              <div class="byline-simple sc-margin--sm archive-four-up__byline-simple">
+
+                <div class="byline-simple__author archive-four-up__byline-simple-author">
+          <div class="clwp-byline"><div class="clwp-byline__before-name">By </div><a class="clwp-byline__author-name" href="https://www.business.org/author/andrew-mosteller/" target="_blank">Andrew Mosteller</a></div>        </div>
+        
+                  <div class="byline-simple__publish-date archive-four-up__byline-simple-publish-date">
+            11/18/2020          </div>
+        
+      </div>
+      
+        <a href="https://www.business.org/finance/payment-processing/costco-merchant-services-review/"
+           target="_self"
+           class="text--p-large text--bold sc-margin--md sc-display--block archive-four-up__heading">
+          Costco Merchant Services Review 2020        </a>
+                  <div class="text--p-medium archive-four-up__description">
+            One of Costco’s lesser-known services is credit card processing. And they actually have a pretty...          </div>
+                </div>
+    </div>
+        <div class="archive-four-up__item">
+      <a href="https://www.business.org/finance/accounting/shop-local/" target="_self" class="sc-margin--md sc-display--block archive-four-up__image">
+        <img width="300" height="104" data-cached="1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAVCAYAAAAaX42MAAAEyUlEQVRYw3WYW3bkNgxEq0CNs8p8ZxXZeROVDzwIyh3P8FCSaUmXVXh0899//tbPzw/++vnBnz9/ejzPg+d5sJ4Hay2stWC2YMtiNgNrkAAJAYAUM3QNUiABI2BG2CKWEUZhGbCMOWLNMsY6Mu7mgjSGA+4OF+AOuIAtxuzEdoyhvA48yJ96zfOS7x+C/DYMNAJgLXvdJ+5VwCAAY/yNEaAAAiJzIEZsExwEof/5Z/e2Ksa3HynWPBNoIr9hQSDe2GKmjVEk/HIHAcztzKUyDkDBCZCMuZ6YyvIbsGJ2eMLqK3hAChrv9bx3RgNeBTGBfkGP8/473MBDeQdgqVxcrNW8/yIV6VVyKF+0oD3f3RGW/QUOhV3av8QzLRDxEfM3S9+HPCe/FB73LKXy12FX5kCCh5Lej1VvnvW5QfLYCJWSBlfBHuE8GVTeUM1paRUshtIaEXip/4LFG3YoNfiPjsc9Qu1+wrLsO+HR1lAG97FswLoI9wDzvga4KxOaoExcTyw4sAJ+7di1EWBfm/mpEs3blkhFp3lRCueOKJ0gEf7atnpO2DmejcrSee4Jc80D1l2dqZ/bBret9dqIy+4V9/1G5wWFAh3QqmVsB514nnaYqzqJp7r5bs5RmvJejgt2J/CWsN0b/rntocsqDX7F9zl+1wIhsq5UKg69ee9A7ZtnnLa7xvI5zw0O6Besq9U8wGPO37WlvZVWB31tgEuwAeoJajP/ZzRGgkjbZcK60m2FpCohJaQDMMKUZUqAqFa4bNwb7vmO074DOkD9F/jTAV7g7Xt0fJgDbvnwTACiciPiBmJl1lMC2v6sc2a2jrVOwrK+y1K1AUlqlKV8Tnda73j163h7WTnmATxApy2G8i6BLtBiBuPhBo9OiJ6t5d2vta15GonTwEQ5cwLGrMuMDamKXsfAC7aAG/Keb1DH3t62fiboFrBesVDHBUt4vnAVGW+YA3tAT4kKmJqpaE3NEErDcq6EpxEF2XBc6n6B3T6sHKBxvlNx4dkJul1YuQvmYVXzGF6w9FTGG4RSfni4OyRcZYqtMkthErAoLcaon2aRsU97qTZFdVmeSn9TN5ScsGPOdc/xvRr6vuag+3nJUVYkwOyl5OiWTuNR6h5okmDB0mByuOw4/pXnuyT9H+wEfsPu3WqHwqnsSmh7Dd+jGZSPghu7XZ3maUl1NSEzhhvWCHPCrRQ2mKydcTcqB9hH/F6ZeDu2J9gE3hufgvaM4fL31gT1GNs7KZ04VdZbptV7B/L/SF2lVkpXCpoRbpbQAeuyTFQc9+AvYH8Db72UTNBd1wLat+PZLqxRu6xieQtmcU4/kRVxag1s9AOsd55Ww0ar3Ck4OyeLJCaDsMBSmCMBHN60c0DvBC0Lf172vWD72g7g/YZ1DytnbHDz/eTufdUMHsrrfDRoP1BXWaIR8rC1zCAZiAUwNuBUgZP1MZoizzArdT8Nve/5c4Dr2nPV3cvWfmKYWY6kUKUaY49My+77PGN8AufxVLeg8ysirAXIAFsjOV4d9fXRrxPqTjvvEa8F/DnHn8+nf9eNx7T23bGcOlufAkrZxehjrZKZvKHPp936Tiu/0enOijAzYBngK6Btje/H2PW7ujQftg47H9gDmuAv4E9e+w/N8e2eMz4HawAAAABJRU5ErkJggg==" data-src="https://www.business.org/app/uploads/2019/09/BORG_shop-local-sign_2020-cs_1.1-1-300x104.png" data-large="https://www.business.org/app/uploads/2019/09/BORG_shop-local-sign_2020-cs_1.1-1.png" class="lazy-image" alt="Shop Small Dream Job" />      </a>
+      <div class="archive-four-up__content">
+
+              <div class="byline-simple sc-margin--sm archive-four-up__byline-simple">
+
+                <div class="byline-simple__author archive-four-up__byline-simple-author">
+          <div class="clwp-byline"><div class="clwp-byline__before-name">By </div><a class="clwp-byline__author-name" href="https://www.business.org/author/chloe-gawrych/" target="_blank">Chloe Goodshore</a></div>        </div>
+        
+                  <div class="byline-simple__publish-date archive-four-up__byline-simple-publish-date">
+            11/16/2020          </div>
+        
+      </div>
+      
+        <a href="https://www.business.org/finance/accounting/shop-local/"
+           target="_self"
+           class="text--p-large text--bold sc-margin--md sc-display--block archive-four-up__heading">
+          Business.org Pays You to Shop Local        </a>
+                  <div class="text--p-medium archive-four-up__description">
+            Here at Business.org, we’re all about supporting local small businesses. Here at Business.org, we’re all...          </div>
+                </div>
+    </div>
+        <div class="archive-four-up__item">
+      <a href="https://www.business.org/finance/accounting/get-paid-to-shop-small/" target="_self" class="sc-margin--md sc-display--block archive-four-up__image">
+        <img width="300" height="199" data-cached="1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAI70lEQVRo3nWZ24LjugpEC5T//9t9XkYU5wEQSElnxi0ncbu1VFxl+e+//7nD4e5wB+B5Dtyfjfee1yA/Q/w/18WP5yVyTp0O0kAazHqMY8NsY++NbRv2jtbvzQzbNmgGo4HkOdzZ860JOfCZsAVyIC7Q72v6PRo+uFGr4ABkwl7AhBkfYMM2g237hj7ndmBjgQy0AjbQHU6CoVbPC8CnZ+Ln+BvMQf6Cf9R/1R7AcICeSpQypSztqBujnfNfytoArvvQeWBLZQyVP7HkqOELdgLWOel547iWfyzAUXhYeXzHVHeacwLvCffvW2H7DcwBfJt0qRyr/YnBh+/esGEeY2R/To7vznU3+HyVPzm9lT0KG4z7UXjAD5O+PzOQNRJ0uxRGMpW5fRwz6LRlH2UfwDg4zhu6rSHPRwC7gx4TsMx6XwHrF/R73P67M2gVbClcJl0GfRTGsfOpzqsmjbAENnvgp+Kvn1/mnL//FaFv6G3/fpjy74O0Adx+HOZc4wAus+645cc36Q6ahxp0mDGV8Yyw/d1rARP4DnzM+9ifCt9B6t8JaDdoA9N2+q+FsiQcrXBFqRGly6RT3ctnB+w5AtSMz4JM4OHTlY4O8FA4YXgpnKAFyGm+CZrnrKDlobAPkz4+fIDPhO6ANf3ymHGemzn2BZ+mPsbLzAHMiG8v8Ag8t8Jt6qxFYS8A830VMaGupTmHwlPdEbSGqv4GqVbOjLBNbCP2tqP0hC+1jW8Ur/x7K2xsmOmTU+Ey+6Mo26TbnEvdR2E8Jn0FlwL12yenkgW7E7wWoL67wf3HItY1rfABPqbdZnuraQf4VnfD3dp/3QDnCFgOuUz6MWU/ypa5stUt2AEd7/nbzEcOb9eI0nEq3NB7BLIfahbwhC3/zQNH3TJpNvBdQj75tgLQo+A2w78B/S+BzYbyI4p3LOhFLP+s+rfh0p8H+AtbgC8svE26FJ7qSvnwBX0KDh7Ttmeyx58f//1W+k5Z4dtlLbPDKfOeqYojv7JzbFZTVWREChqgmOoWcI7yKNyphF+qdA72y59tD9Bh4i/wWbSjrp1OiT7OyVOBnfOqnp7279TM5A171OVlzhI+fCv75t83F0fK6XO7gpoPs/fhx7NC64WyAdCgvK6/jrK8sQB3zrUzNvBQePrwaQCc4/ytnfmVrviloI/JDtgZ/PJ8Wy+ofd1vZgoOAdrV/IG+g9UfCncr9/jwj2bgbiDG+7cU5fdh4zgVmXn3xpcl/GpS+rzK04o198ZF5d6/FD7d0ru181Reb3B7ozv99MdVUs4FuDov+td38TlGWoz3ff1dGHVHdwt2xqGqewQsB9OHR4OMsb1zdgpO9d/93vyofnc2IL3v82yofC3cu+nQuxNXFXx9jy8RGhgNnDk4NgBYCnd/2HPsdur0yu+eXO7cSJ4Dkv9yR0fmPkf/kjwbenWVzJt5f/f96gWftz8LXct0mDoPe1Vak8r/muSZgRxayYn2AYgKhAoVwlVAV4gTqgK6QESh4lDVCJAQCOP3VQQQgY976vPeRQDPdflaU3/NLhfjag9vxFbsYZRWryYimhNRgapAVaEOqBLuAodiOQEoAGCdJRUsF8A17+cQqes8R57RIUEncsyKAojHuY+Ns8sZLtMO8/7gj1eph/l3EjRgEef6HC5YSy/z68l/T0a8gANWhHEumosg1+HlOh5zAIf3XNBt0hP680K+MguGyWqqWeAJuVTgS+Cu+ccSUAiYxr3MY9HM874ROUmA4jBZ+X7BzBNY8z45ek7MFdCQmTm3V+kZ+mbk/kyzbdOVxzflUldVoCvMd42NP19DSXGISSjGGMlpLQsiyNQDKB3GBVqoLVTQFIIANyT0ozh8mPhRuFPDm6o+X+qiJ6UCqALKYbIrzdYFrgJf2vFBElAkAJRQEyiJpQI794n7bi1gAelQc5guaJ1LWIEYIQdYIxd4wjvgPoNazN1HGHe8wFPdoSZVoK7QRSyEyU4HkAmoAlWHLT37Wka9OqWzTWR6DlKzQxKYxaKY4RxRkzu2OXQTWwkTxt+1Ul4OPCQcSh6TrsbigzJhSAaP9FUPWHdiucbNljcs2ItzQGdpqGM/bJSHTpgp9tZYkII2gbEgG3jtASuEiEGPfw+z9shT7lUHDP9FV3qfK+2IQMXhme9cw1zilSnjpJFQt5RVOta6If2tv6u/NoN9BNsEZCpryFHwSei9HaqEbkITVrAgsIRUwDUDppwYEaVCFxtd7hKfDlKlrkKdcNXc9avc6A2cEbZ8VdWxBuinat/nUc2BNsU2xcdCYTvQgm2OvR3LHEsduj1hGbBuGbE1cn0dErGBLNhTdVx9dETpo24GPZXUs1QNwMiTEsGEMRFjqEsCy7vQv3Yrr147WsPPfn02xgBNdbMgUVnhQqloAyucGWsquGbE7nRU3VT68CkJc1RB/rhTctiBgxqwpMcf4gtZTxRrJ3Q+YazNPMI+elRtdYG1gbWAtcJyVGNhIxQtOFaCasaJcAuqnOwy5M1/vUOSwGXOAadUQKcZZ9GQsCIO17t1u55YXB3Q/ejGHfmEIXw4onWpm7C7QVUJyMrCtGAX6IoPOwZUquvqc1RYp6WsKF0qp7hUQKtYEoHQ4eIRucVBrScJGMq9TwhnO3i3d2TALuuAtXcAh6rls5+o1nwBrqAvkCuVVXAplmnk+KwAi2UWFucZcUTpWBJJyBBXrmfGIhKjAy4OTSVVp/nOHvoGns+sHA5alKNbo/K0NN29KxjOTbgF95WwCWoKW4q1BGtlMWRV9rbKkLbS6p8/kpJq+qeeHY7oRgooqkXPVBXQt9lWCdvPha/NgdOYI3x4C1YGq22A7qzsxCHyiSB1gNOMmcVK+f9SqIbCKgWb41M9FvQnKqpYzE5AAl89yVooxQ3XOwy4IDFB5+e5GCRhWgWGQA1YihOkQuGV1VEqTIVxnQptrQBdT7dWQauD19ivc4+gpcApMnoPS85WzbVjkye9w4BjEef+Y9vi2unJH2SYs+6op1UdWxwQZkm4EtSOGUdUD1PeK1rQtTRApWF1RGo5U+oA9n+XCqYLeCSAywAAAABJRU5ErkJggg==" data-src="https://www.business.org/app/uploads/2020/11/Screen-Shot-2020-11-16-at-6.32.05-AM-300x199.png" data-large="https://www.business.org/app/uploads/2020/11/Screen-Shot-2020-11-16-at-6.32.05-AM.png" class="lazy-image" alt="" />      </a>
+      <div class="archive-four-up__content">
+
+              <div class="byline-simple sc-margin--sm archive-four-up__byline-simple">
+
+                <div class="byline-simple__author archive-four-up__byline-simple-author">
+          <div class="clwp-byline"><div class="clwp-byline__before-name">By </div><a class="clwp-byline__author-name" href="https://www.business.org/author/kylie-mcquarrie/" target="_blank">Kylie McQuarrie</a></div>        </div>
+        
+                  <div class="byline-simple__publish-date archive-four-up__byline-simple-publish-date">
+            11/16/2020          </div>
+        
+      </div>
+      
+        <a href="https://www.business.org/finance/accounting/get-paid-to-shop-small/"
+           target="_self"
+           class="text--p-large text--bold sc-margin--md sc-display--block archive-four-up__heading">
+          Get paid $1,000 to shop at small businesses for the holidays        </a>
+                  <div class="text--p-medium archive-four-up__description">
+            Concerned that corporate chains have earned enough this year? We’ll pay you $1,000 to ditch...          </div>
+                </div>
+    </div>
+        <div class="archive-four-up__item">
+      <a href="https://www.business.org/finance/benefits/best-workers-compensation/" target="_self" class="sc-margin--md sc-display--block archive-four-up__image">
+        <img width="300" height="200" data-cached="1" src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwNDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUX/wAARCAAoADwDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAABQYABAcDAf/EACcQAAICAQMEAQQDAAAAAAAAAAECAAMEBQYREhMhMSIUFTJBFkJx/8QAGQEAAgMBAAAAAAAAAAAAAAAAAgQAAQMF/8QAHREAAwEBAQADAQAAAAAAAAAAAAECESEDEiIxQf/aAAwDAQACEQMRAD8A0ys8u0Wd2ITjtxKqbv7bEke5wytwU6kjIw8zRMtS0zzZQAZh+461jy3+TNtJzzpuY7n8OfUPpvbERiG4lS1hPSX8tF/ef3AZbdtiK4k10XtkBzzyDH/WNex9QU9HHmKb2gWnpE340AucY0aFliyoIx+Qho2KDM20/VnxdTAY8KTHquzv1ixT4Imk+qwzrzegzO0fKp/oSJSFdmMAxrM1GzsWp5AMpvpmJkKR0qJxaqt4dKWs6Z/ZallfPQQYDyqyHZiOBNSt25j2KQgEE5e0SyseBBV0gvqxBpUmkvz6lV72rbr4jh/G76iR0fGAtX0h6X54IX9w171mMGvCG/kv0WMm5nt7g8GMumboWjCSuz8hA+XiIqDt+TBzDoPBWMz9pF3s101PB121hy7EiFqNWD+VbmSSLtDCOx3FVioS7+ZxXcn1B5B+MkkrEX/SpnbjaghQAeYE1bU6svGKuArSSSYnhNzRQrJ+oKewZ1swGLk9EkkcVZwVqU+n/9k=" data-src="https://www.business.org/app/uploads/2017/11/iStock-522481362-300x200.jpg" data-large="https://www.business.org/app/uploads/2017/11/iStock-522481362.jpg" class="lazy-image" alt="Worker uses a metal cutting grinder" />      </a>
+      <div class="archive-four-up__content">
+
+              <div class="byline-simple sc-margin--sm archive-four-up__byline-simple">
+
+                <div class="byline-simple__author archive-four-up__byline-simple-author">
+          <div class="clwp-byline"><div class="clwp-byline__before-name">By </div><a class="clwp-byline__author-name" href="https://www.business.org/author/christa-baxter/" target="_blank">Christa Baxter</a></div>        </div>
+        
+                  <div class="byline-simple__publish-date archive-four-up__byline-simple-publish-date">
+            11/15/2020          </div>
+        
+      </div>
+      
+        <a href="https://www.business.org/finance/benefits/best-workers-compensation/"
+           target="_self"
+           class="text--p-large text--bold sc-margin--md sc-display--block archive-four-up__heading">
+          7 Best Workers Compensation Insurance Companies for Small Businesses 2020        </a>
+                  <div class="text--p-medium archive-four-up__description">
+            Safeguard your business with our top seven picks for best workers compensation insurance companies. Best...          </div>
+                </div>
+    </div>
+    </div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--default   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</article>
+</section>
+
+
+<!-- cached 2020-11-20 19:31:42 -->
+<section class="clwp-container">		<div data-elementor-type="footer" data-elementor-id="19781" class="elementor elementor-19781 elementor-location-footer" data-elementor-settings="[]">
+			<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+					<div class="clwp-row    row-padding--large row-margin--default has-background has-background--secondary-darkest"><div class="grid-container grid-container--full-width">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     ">
+<!--section start -->
+
+<div class="grid-container grid-container--full-width footer-logo hide-for-medium row-padding--default row-margin--xlarge">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="simple-image" class="simple-image-container align-none component-margin--medium "><a  href="/"><div class="simple-image__image"><img width="219" height="31" data-cached="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMTkiIGhlaWdodD0iMzEiPjwvc3ZnPg==" data-src="https://www.business.org/app/uploads/2020/08/light-1.svg" data-large="https://www.business.org/app/uploads/2020/08/light-1.svg" class="simple-image simple-image-small lazy-image" alt="" /></div></a></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--full-width footer-logo hide-for-small-only row-padding--default row-margin--xlarge">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-3 cell     "><div data-widget="simple-image" class="simple-image-container align-none component-margin--medium "><a  href="/"><div class="simple-image__image"><img width="219" height="31" data-cached="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMTkiIGhlaWdodD0iMzEiPjwvc3ZnPg==" data-src="https://www.business.org/app/uploads/2020/08/light-1.svg" data-large="https://www.business.org/app/uploads/2020/08/light-1.svg" class="simple-image simple-image-small lazy-image" alt="" /></div></a></div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-3 cell     "></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-3 cell     "></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-3 cell     "></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--xlarge">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-3 cell     "><div data-widget="heading" class="heading component-margin--small ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <div class="clwp-heading clwp-heading--large">Location</div></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--small "><p>5202 W Douglas Corrigan Way<br />Salt Lake City, UT 84116</p>
+</div><div data-widget="heading" class="heading component-margin--small ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <a  href="/about/#contact"><div class="clwp-heading clwp-heading--large clwp-heading--link">Contact Us</div></a>  </div>
+</div><div data-widget="heading" class="heading component-margin--small ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <a  href="/about/"><div class="clwp-heading clwp-heading--large clwp-heading--link">About Us</div></a>  </div>
+</div><div data-widget="heading" class="heading component-margin--small ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <a  href="/about/careers/"><div class="clwp-heading clwp-heading--large clwp-heading--link">Careers</div></a>  </div>
+</div><div data-widget="heading" class="heading component-margin--small ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <a  href="/press/"><div class="clwp-heading clwp-heading--large clwp-heading--link">Press</div></a>  </div>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-3 cell     "><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <div class="clwp-heading clwp-heading--large">Explore</div></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/loans/">Loans</a></p>
+<p><a href="/finance/banking/">Banking</a></p>
+<p><a href="/finance/accounting/">Accounting &amp; Payroll</a></p>
+<p><a href="/finance/taxes/">Taxes</a></p>
+<p><a href="/software/point-of-sale/">Point of Sale</a></p>
+<p><a href="/finance/inventory-management/">Inventory Management</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-3 cell     "><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <div class="clwp-heading clwp-heading--large">Find Solutions</div></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--medium "><p><a href="/finance/loans/best-small-business-loans/">Business Small Business Loans</a></p>
+<p><a href="/finance/cost-management/best-inventory-management-software/">Best Inventory Management Software</a></p>
+<p><a href="/finance/accounting/best-small-business-accounting-software/">Best Small Business Accounting Software</a></p>
+<p><a href="/finance/accounting/best-payroll-software/">Best Payroll Software</a></p>
+<p><a href="/software/point-of-sale/the-best-mobile-credit-card-reader-apps-for-your-small-business/">Best Mobile Credit Card Readers</a></p>
+<p><a href="/software/point-of-sale/best-pos-systems-for-business/">Best POS Systems</a></p>
+<p><a href="/finance/taxes/best-tax-software/">Best Tax Software</a></p>
+</div></div>
+<!--column end -->
+
+
+<!--column start -->
+
+<div class="medium-3 cell     "><div data-widget="heading" class="heading component-margin--medium ">  <div class="clwp-heading-container clwp-heading-container--default clwp-heading-container--align-default">
+    <div class="clwp-heading clwp-heading--large">Don't miss an update</div></a>  </div>
+</div><div data-widget="text-content" class="text-content text-content--align-default text--p-medium component-margin--xlarge "><p>Stay updated on the latest products and services anytime anywhere.</p>
+</div><div data-widget="embeddable-javascript" class="embeddable-javascript component-margin--medium ">
+<div style="text-align: center;">
+  <form method="POST" action="https://clearlink.activehosted.com/proc.php" id="_form_11_" class="_form _form_11 _inline-form _inline-style " novalidate>
+    <input type="hidden" name="u" value="11" />
+    <input type="hidden" name="f" value="11" />
+    <input type="hidden" name="s" />
+    <input type="hidden" name="c" value="0" />
+    <input type="hidden" name="m" value="0" />
+    <input type="hidden" name="act" value="sub" />
+    <input type="hidden" name="v" value="2" />
+    <div class="_form-content">
+      <div class="_form_element _x65917210 _inline-style " >
+        <label class="_form-label">
+          &nbsp;
+        </label>
+        <div class="_field-wrapper">
+          <input type="text" name="email" placeholder="Enter E-Mail" required/>
+        </div>
+      </div>
+      <div class="_button-wrapper _inline-style">
+        <button id="_form_11_submit" class="_submit" type="submit">
+          Sign Up
+        </button>
+      </div>
+      <div class="_clear-element">
+      </div>
+    </div>
+    <div class="_form-thank-you" style="display:none;">
+    </div>
+  </form>
+</div><script type="text/javascript">
+window.cfields = [];
+window._show_thank_you = function(id, message, trackcmp_url, email) {
+  var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+  form.querySelector('._form-content').style.display = 'none';
+  thank_you.innerHTML = message;
+  thank_you.style.display = 'block';
+  const vgoAlias = typeof visitorGlobalObjectAlias === 'undefined' ? 'vgo' : visitorGlobalObjectAlias;
+  var visitorObject = window[vgoAlias];
+  if (email && typeof visitorObject !== 'undefined') {
+    visitorObject('setEmail', email);
+    visitorObject('update');
+  } else if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+    // Site tracking URL to use after inline form submission.
+    _load_script(trackcmp_url);
+  }
+  if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+};
+window._show_error = function(id, message, html) {
+  var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+  if (old_error) old_error.parentNode.removeChild(old_error);
+  err.innerHTML = message;
+  err.className = '_error-inner _form_error _no_arrow';
+  var wrapper = document.createElement('div');
+  wrapper.className = '_form-inner';
+  wrapper.appendChild(err);
+  button.parentNode.insertBefore(wrapper, button);
+  document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+  if (html) {
+    var div = document.createElement('div');
+    div.className = '_error-html';
+    div.innerHTML = html;
+    err.appendChild(div);
+  }
+};
+window._load_script = function(url, callback) {
+  var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+  script.type = 'text/javascript';
+  script.charset = 'utf-8';
+  script.src = url;
+  if (callback) {
+    script.onload = script.onreadystatechange = function() {
+      if (!r && (!this.readyState || this.readyState == 'complete')) {
+        r = true;
+        callback();
+      }
+    };
+  }
+  head.appendChild(script);
+};
+(function() {
+  if (window.location.search.search("excludeform") !== -1) return false;
+  var getCookie = function(name) {
+    var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+  var setCookie = function(name, value) {
+    var now = new Date();
+    var time = now.getTime();
+    var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+    now.setTime(expireTime);
+    document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+  }
+      var addEvent = function(element, event, func) {
+    if (element.addEventListener) {
+      element.addEventListener(event, func);
+    } else {
+      var oldFunc = element['on' + event];
+      element['on' + event] = function() {
+        oldFunc.apply(this, arguments);
+        func.apply(this, arguments);
+      };
+    }
+  }
+  var _removed = false;
+  var form_to_submit = document.getElementById('_form_11_');
+  var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+  var getUrlParam = function(name) {
+    var regexStr = '[\?&]' + name + '=([^&#]*)';
+    var results = new RegExp(regexStr, 'i').exec(window.location.href);
+    return results != undefined ? decodeURIComponent(results[1]) : false;
+  };
+
+  for (var i = 0; i < allInputs.length; i++) {
+    var regexStr = "field\\[(\\d+)\\]";
+    var results = new RegExp(regexStr).exec(allInputs[i].name);
+    if (results != undefined) {
+      allInputs[i].dataset.name = window.cfields[results[1]];
+    } else {
+      allInputs[i].dataset.name = allInputs[i].name;
+    }
+    var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+    if (fieldVal) {
+      if (allInputs[i].dataset.autofill === "false") {
+        continue;
+      }
+      if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+        if (allInputs[i].value == fieldVal) {
+          allInputs[i].checked = true;
+        }
+      } else {
+        allInputs[i].value = fieldVal;
+      }
+    }
+  }
+
+  var remove_tooltips = function() {
+    for (var i = 0; i < tooltips.length; i++) {
+      tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+    }
+    tooltips = [];
+  };
+  var remove_tooltip = function(elem) {
+    for (var i = 0; i < tooltips.length; i++) {
+      if (tooltips[i].elem === elem) {
+        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+        tooltips.splice(i, 1);
+        return;
+      }
+    }
+  };
+  var create_tooltip = function(elem, text) {
+    var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+    if (elem.type != 'radio' && elem.type != 'checkbox') {
+      tooltip.className = '_error';
+      arrow.className = '_error-arrow';
+      inner.className = '_error-inner';
+      inner.innerHTML = text;
+      tooltip.appendChild(arrow);
+      tooltip.appendChild(inner);
+      elem.parentNode.appendChild(tooltip);
+    } else {
+      tooltip.className = '_error-inner _no_arrow';
+      tooltip.innerHTML = text;
+      elem.parentNode.insertBefore(tooltip, elem);
+      new_tooltip.no_arrow = true;
+    }
+    new_tooltip.tip = tooltip;
+    new_tooltip.elem = elem;
+    tooltips.push(new_tooltip);
+    return new_tooltip;
+  };
+  var resize_tooltip = function(tooltip) {
+    var rect = tooltip.elem.getBoundingClientRect();
+    var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+    if (scrollPosition < 40) {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+    } else {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+    }
+  };
+  var resize_tooltips = function() {
+    if (_removed) return;
+    for (var i = 0; i < tooltips.length; i++) {
+      if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+    }
+  };
+  var validate_field = function(elem, remove) {
+    var tooltip = null, value = elem.value, no_error = true;
+    remove ? remove_tooltip(elem) : false;
+    if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+    if (elem.getAttribute('required') !== null) {
+      if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+        var elems = form_to_submit.elements[elem.name];
+        if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+          no_error = elem.checked;
+        }
+        else {
+          no_error = false;
+          for (var i = 0; i < elems.length; i++) {
+            if (elems[i].checked) no_error = true;
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, "Please select an option.");
+        }
+      } else if (elem.type =='checkbox') {
+        var elems = form_to_submit.elements[elem.name], found = false, err = [];
+        no_error = true;
+        for (var i = 0; i < elems.length; i++) {
+          if (elems[i].getAttribute('required') === null) continue;
+          if (!found && elems[i] !== elem) return true;
+          found = true;
+          elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+          if (!elems[i].checked) {
+            no_error = false;
+            elems[i].className = elems[i].className + ' _has_error';
+            err.push("Checking %s is required".replace("%s", elems[i].value));
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, err.join('<br/>'));
+        }
+      } else if (elem.tagName == 'SELECT') {
+        var selected = true;
+        if (elem.multiple) {
+          selected = false;
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected) {
+              selected = true;
+              break;
+            }
+          }
+        } else {
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected && !elem.options[i].value) {
+              selected = false;
+            }
+          }
+        }
+        if (!selected) {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+          tooltip = create_tooltip(elem, "Please select an option.");
+        }
+      } else if (value === undefined || value === null || value === '') {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "This field is required.");
+      }
+    }
+    if (no_error && elem.name == 'email') {
+      if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Enter a valid email address.");
+      }
+    }
+    if (no_error && /date_field/.test(elem.className)) {
+      if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Enter a valid date.");
+      }
+    }
+    tooltip ? resize_tooltip(tooltip) : false;
+    return no_error;
+  };
+  var needs_validate = function(el) {
+        if(el.getAttribute('required') !== null){
+            return true
+        }
+        if(el.name === 'email' && el.value !== ""){
+            return true
+        }
+        return false
+  };
+  var validate_form = function(e) {
+    var err = form_to_submit.querySelector('._form_error'), no_error = true;
+    if (!submitted) {
+      submitted = true;
+      for (var i = 0, len = allInputs.length; i < len; i++) {
+        var input = allInputs[i];
+        if (needs_validate(input)) {
+          if (input.type == 'text') {
+            addEvent(input, 'blur', function() {
+              this.value = this.value.trim();
+              validate_field(this, true);
+            });
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'radio' || input.type == 'checkbox') {
+            (function(el) {
+              var radios = form_to_submit.elements[el.name];
+              for (var i = 0; i < radios.length; i++) {
+                addEvent(radios[i], 'click', function() {
+                  validate_field(el, true);
+                });
+              }
+            })(input);
+          } else if (input.tagName == 'SELECT') {
+            addEvent(input, 'change', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'textarea'){
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          }
+        }
+      }
+    }
+    remove_tooltips();
+    for (var i = 0, len = allInputs.length; i < len; i++) {
+      var elem = allInputs[i];
+      if (needs_validate(elem)) {
+        if (elem.tagName.toLowerCase() !== "select") {
+          elem.value = elem.value.trim();
+        }
+        validate_field(elem) ? true : no_error = false;
+      }
+    }
+    if (!no_error && e) {
+      e.preventDefault();
+    }
+    resize_tooltips();
+    return no_error;
+  };
+  addEvent(window, 'resize', resize_tooltips);
+  addEvent(window, 'scroll', resize_tooltips);
+  window._old_serialize = null;
+  if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+  _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
+    window._form_serialize = window.serialize;
+    if (window._old_serialize) window.serialize = window._old_serialize;
+  });
+  var form_submit = function(e) {
+    e.preventDefault();
+    if (validate_form()) {
+      // use this trick to get the submit button & disable it using plain javascript
+      document.querySelector('#_form_11_submit').disabled = true;
+            var serialized = _form_serialize(document.getElementById('_form_11_'));
+      var err = form_to_submit.querySelector('._form_error');
+      err ? err.parentNode.removeChild(err) : false;
+      _load_script('https://clearlink.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+    }
+    return false;
+  };
+  addEvent(form_to_submit, 'submit', form_submit);
+})();
+
+</script></div><div data-widget="footer-disclaimer" class="footer-disclaimer component-margin--medium "><div class="text--p-xsmall footer-disclaimer__disclaimer">By signing up, you agree to our <a href="/terms-and-conditions/">Terms of Use</a> and <a href="/privacy-policy/">Privacy Policy</a>.</div></div><div data-widget="social-icons" class="social-icons social-icons--align-default component-margin--medium "><div class="sc-gutter--right-md clwp-icon--md sc-display--inline-block social-icons__icon"><a href="https://www.facebook.com/BusinessDotOrg/" target="_blank"><img alt="Business.org - Facebook" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTA0cHgiIGhlaWdodD0iMTA0cHgiIHZpZXdCb3g9IjAgMCAxMDQgMTA0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1Ny4xICg4MzA4OCkgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+aWNvbi1zb2NpYWwtZmFjZWJvb2stLWxpZ2h0PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9Imljb24tc29jaWFsLWZhY2Vib29rLS1saWdodCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTUyLDAgQzgwLjcxODU5NjUsMCAxMDQsMjMuMjgxNDAzNSAxMDQsNTIgQzEwNCw4MC43MTg1OTY1IDgwLjcxODU5NjUsMTA0IDUyLDEwNCBDMjMuMjgxNDAzNSwxMDQgMCw4MC43MTg1OTY1IDAsNTIgQzAsMjMuMjgxNDAzNSAyMy4yODE0MDM1LDAgNTIsMCBaIE01Miw2LjkzMzMzMzMzIEMyNy4xMTA1Nzc4LDYuOTMzMzMzMzMgNi45MzMzMzMzMywyNy4xMTA1Nzc4IDYuOTMzMzMzMzMsNTIgQzYuOTMzMzMzMzMsNzYuODg5NDIyMiAyNy4xMTA1Nzc4LDk3LjA2NjY2NjcgNTIsOTcuMDY2NjY2NyBDNzYuODg5NDIyMiw5Ny4wNjY2NjY3IDk3LjA2NjY2NjcsNzYuODg5NDIyMiA5Ny4wNjY2NjY3LDUyIEM5Ny4wNjY2NjY3LDI3LjExMDU3NzggNzYuODg5NDIyMiw2LjkzMzMzMzMzIDUyLDYuOTMzMzMzMzMgWiBNNTcuNjI1MDE1OCwyMC44IEM2MS41MzEzNjY3LDIwLjggNjQuODg3OTk2NywyMS4wOTA2ODU4IDY1Ljg2NjY2NjcsMjEuMjIwNjE5OSBMNjUuODY2NjY2NywzMC43NzMyNzIxIEw2MC4yMTEyMDM0LDMwLjc3NTc3MDggQzU1Ljc3Njc4NzEsMzAuNzc1NzcwOCA1NC45MTgwNTYyLDMyLjg4MzAzNDggNTQuOTE4MDU2MiwzNS45NzU2MzIgTDU0LjkxODA1NjIsNDIuNzk0NjcxNSBMNjUuNDk0MzU1Niw0Mi43OTQ2NzE1IEw2NC4xMTY3MjE0LDUzLjQ3NDI1MTggTDU0LjkxODA1NjIsNTMuNDc0MjUxOCBMNTQuOTE4MDU2Miw4MC44Nzk1MTA5IEw0My44ODg2NTM0LDgwLjg3OTUxMDkgTDQzLjg4ODY1MzQsNTMuNDc0MjUxOCBMMzQuNjY2NjY2Nyw1My40NzQyNTE4IEwzNC42NjY2NjY3LDQyLjc5NDY3MTUgTDQzLjg4ODY1MzQsNDIuNzk0NjcxNSBMNDMuODg4NjUzNCwzNC45MTc4MzU1IEM0My44ODg2NTM0LDI1Ljc3NzQ3NCA0OS40NzE2NTM1LDIwLjggNTcuNjI1MDE1OCwyMC44IFoiIGlkPSJDb21iaW5lZC1TaGFwZSIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4="/></a></div><div class="sc-gutter--right-md clwp-icon--md sc-display--inline-block social-icons__icon"><a href="https://twitter.com/businessdotorg" target="_blank"><img alt="Business.org - Twitter" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTA0cHgiIGhlaWdodD0iMTA0cHgiIHZpZXdCb3g9IjAgMCAxMDQgMTA0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1Ny4xICg4MzA4OCkgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+aWNvbi1zb2NpYWwtdHdpdHRlci0tbGlnaHQ8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZyBpZD0iaWNvbi1zb2NpYWwtdHdpdHRlci0tbGlnaHQiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik01MiwwIEM4MC43MTg1OTY1LDAgMTA0LDIzLjI4MTQwMzUgMTA0LDUyIEMxMDQsODAuNzE4NTk2NSA4MC43MTg1OTY1LDEwNCA1MiwxMDQgQzIzLjI4MTQwMzUsMTA0IDAsODAuNzE4NTk2NSAwLDUyIEMwLDIzLjI4MTQwMzUgMjMuMjgxNDAzNSwwIDUyLDAgWiBNNTIsNi45MzMzMzMzMyBDMjcuMTEwNTc3OCw2LjkzMzMzMzMzIDYuOTMzMzMzMzMsMjcuMTEwNTc3OCA2LjkzMzMzMzMzLDUyIEM2LjkzMzMzMzMzLDc2Ljg4OTQyMjIgMjcuMTEwNTc3OCw5Ny4wNjY2NjY3IDUyLDk3LjA2NjY2NjcgQzc2Ljg4OTQyMjIsOTcuMDY2NjY2NyA5Ny4wNjY2NjY3LDc2Ljg4OTQyMjIgOTcuMDY2NjY2Nyw1MiBDOTcuMDY2NjY2NywyNy4xMTA1Nzc4IDc2Ljg4OTQyMjIsNi45MzMzMzMzMyA1Miw2LjkzMzMzMzMzIFogTTYzLjczNDM0NzQsMzEuMiBDNjYuODAyOTMyOSwzMS4yIDY5LjU3NjA1OTUsMzIuNDk1ODMxOCA3MS41MjE3NDU4LDM0LjU2ODY5NzMgQzczLjk1MjEwOSwzNC4wOTAyMjQ0IDc2LjIzNTEzMDQsMzMuMjAyMjk2NiA3OC4yOTYzNjM3LDMxLjk4MDEzNTcgQzc3LjQ5OTk0MjgsMzQuNDcwOTg2NSA3NS44MDg2MTQ4LDM2LjU2MTY4ODIgNzMuNjA1NDY4MSwzNy44ODIzMzU0IEM3NS43NjM2MzY4LDM3LjYyNDA5OTYgNzcuODE5NDQxOCwzNy4wNTEwMTc4IDc5LjczMzMzMzMsMzYuMjAyNjM5NiBDNzguMzAzMzQzLDM4LjM0MjE5NjcgNzYuNDk0MTQxNiw0MC4yMjExOTE2IDc0LjQwOTY0MzgsNDEuNzI0ODUyNyBDNzQuNDMwNTgxOSw0Mi4xODIzODc2IDc0LjQ0MDY2MzEsNDIuNjQzMDI0NCA3NC40NDA2NjMxLDQzLjEwNTIxMjEgQzc0LjQ0MDY2MzEsNTcuMjAyNzE0MiA2My43MTAzMDc1LDczLjQ1OTE2MDQgNDQuMDg2NzE0OSw3My40NTkxNjA0IEMzOC4wNjE5ODg5LDczLjQ1OTE2MDQgMzIuNDU0NDcyNyw3MS42OTMzODYgMjcuNzMzMzMzMyw2OC42NjU5MDExIEMyOC41Njc3NTI4LDY4Ljc2NDM4NzQgMjkuNDE2OTA2NSw2OC44MTU1NjkzIDMwLjI3NzY5MjQsNjguODE1NTY5MyBDMzUuMjc2NDU0Nyw2OC44MTU1NjkzIDM5Ljg3NjYxODcsNjcuMTA5NTA3MSA0My41Mjc1OTE4LDY0LjI0Nzk3NTUgQzM4Ljg1OTE4NTIsNjQuMTYyNjcyNCAzNC45MTk3MzI2LDYxLjA3NzgwMTggMzMuNTYxODYyMiw1Ni44Mzk3ODgyIEMzNC4yMTMyNjc3LDU2Ljk2Mzg2NTUgMzQuODgxNzMzOSw1Ny4wMzA1NTcgMzUuNTY4ODExNyw1Ny4wMzA1NTcgQzM2LjU0MjA0MjYsNTcuMDMwNTU3IDM3LjQ4NDI1NDIsNTYuOTAwMjc1OSAzOC4zNzk5MzY5LDU2LjY1Njc3NDMgQzMzLjQ5OTA0OCw1NS42NzY1NjQgMjkuODIxNzA4NSw1MS4zNjQ4Nzk2IDI5LjgyMTcwODUsNDYuMTk1NTExMSBDMjkuODIxNzA4NSw0Ni4xNTA1MzMxIDI5LjgyMTcwODUsNDYuMTA2MzMwNiAyOS44MjI0ODQsNDYuMDYxMzUyNiBDMzEuMjYxMDA0Niw0Ni44NjA4NzU0IDMyLjkwNTgwMzcsNDcuMzQwMTIzOCAzNC42NTQ1MTc0LDQ3LjM5NTk1ODUgQzMxLjc5MjIxMDQsNDUuNDgyODQyNCAyOS45MDg1NjI2LDQyLjIxNzI4NDMgMjkuOTA4NTYyNiwzOC41MTU5MDQ5IEMyOS45MDg1NjI2LDM2LjU2MDkxMjcgMzAuNDM1MTE1NSwzNC43Mjg0NDY4IDMxLjM1MzI4NzEsMzMuMTUyNjY1NyBDMzYuNjE0OTM4LDM5LjYwNzAwOTIgNDQuNDc2MDA3Myw0My44NTQzMjg1IDUzLjM0MjEwMjMsNDQuMjk5NDU1NyBDNTMuMTYwNjM5Myw0My41MTg1NDQ1IDUzLjA2NjAzMDQsNDIuNzA0Mjg3NSA1My4wNjYwMzA0LDQxLjg2ODMxNzEgQzUzLjA2NjAzMDQsMzUuOTc2MTk4NiA1Ny44NDMwMDQ1LDMxLjIgNjMuNzM0MzQ3NCwzMS4yIFoiIGlkPSJDb21iaW5lZC1TaGFwZSIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4="/></a></div><div class="sc-gutter--right-md clwp-icon--md sc-display--inline-block social-icons__icon"><a href="https://www.linkedin.com/company/business-org/" target="_blank"><img alt="Business.org - Linkedin" class="clwp-icon " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTA0cHgiIGhlaWdodD0iMTA0cHgiIHZpZXdCb3g9IjAgMCAxMDQgMTA0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1Ny4xICg4MzA4OCkgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+aWNvbi1zb2NpYWwtbGlua2VkaW4tLWxpZ2h0PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9Imljb24tc29jaWFsLWxpbmtlZGluLS1saWdodCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTUyLDEuNDIxMDg1NDdlLTE0IEM4MC43MTg1OTY1LDEuNDIxMDg1NDdlLTE0IDEwNCwyMy4yODE0MDM1IDEwNCw1MiBDMTA0LDgwLjcxODU5NjUgODAuNzE4NTk2NSwxMDQgNTIsMTA0IEMyMy4yODE0MDM1LDEwNCAxLjEzMjQyNzQ5ZS0xNCw4MC43MTg1OTY1IDEuMTMyNDI3NDllLTE0LDUyIEMxLjEzMjQyNzQ5ZS0xNCwyMy4yODE0MDM1IDIzLjI4MTQwMzUsMS40MjEwODU0N2UtMTQgNTIsMS40MjEwODU0N2UtMTQgWiBNNTIsNi45MzMzMzMzMyBDMjcuMTEwNTc3OCw2LjkzMzMzMzMzIDYuOTMzMzMzMzMsMjcuMTEwNTc3OCA2LjkzMzMzMzMzLDUyIEM2LjkzMzMzMzMzLDc2Ljg4OTQyMjIgMjcuMTEwNTc3OCw5Ny4wNjY2NjY3IDUyLDk3LjA2NjY2NjcgQzc2Ljg4OTQyMjIsOTcuMDY2NjY2NyA5Ny4wNjY2NjY3LDc2Ljg4OTQyMjIgOTcuMDY2NjY2Nyw1MiBDOTcuMDY2NjY2NywyNy4xMTA1Nzc4IDc2Ljg4OTQyMjIsNi45MzMzMzMzMyA1Miw2LjkzMzMzMzMzIFogTTM5LjMxMjkyMDgsNDEuNDIwMDA0MiBMMzkuMzEyOTIwOCw3NS45Mjg1MDQyIEwyOC41ODc5MjA4LDc1LjkyODUwNDIgTDI4LjU4NzkyMDgsNDEuNDIwMDA0MiBMMzkuMzEyOTIwOCw0MS40MjAwMDQyIFogTTY2LjYxODYwODMsNDAuNTYxODQxNyBDNzcuNDc5Mjk1OCw0MC41NjE4NDE3IDc5LjQ4NDU0NTgsNDcuNzEwMjE2NyA3OS40ODQ1NDU4LDU3LjAwMDM0MTcgTDc5LjQ4NDU0NTgsNzUuOTI4MzQxNyBMNjguNzY2ODU4Myw3NS45MjgzNDE3IEw2OC43NjY0MTM3LDU4Ljc0MjQ4ODIgQzY4Ljc1NTkwMDQsNTQuODA3OTI0MiA2OC41MDk1OTM3LDQ5Ljk5NzQwNDIgNjMuMTkzMTA4Myw0OS45OTc0MDQyIEM1Ny42MTI4NTgzLDQ5Ljk5NzQwNDIgNTYuNzU1NjcwOCw1NC4zNTY0NjY3IDU2Ljc1NTY3MDgsNTguODU2OTA0MiBMNTYuNzU1NjcwOCw3NS45MjgzNDE3IEw0Ni4wNDA0MjA4LDc1LjkyODM0MTcgTDQ2LjA0MDQyMDgsNDEuNDE5ODQxNyBMNTYuMzI3NDgzMyw0MS40MTk4NDE3IEw1Ni4zMjc0ODMzLDQ2LjEzNTU5MTcgTDU2LjQ3MTI5NTgsNDYuMTM1NTkxNyBDNTcuOTAyOTIwOCw0My40MjE4NDE3IDYxLjQwMDczMzMsNDAuNTYxODQxNyA2Ni42MTg2MDgzLDQwLjU2MTg0MTcgWiBNMzMuOTUzNjcwOCwyNC4yNjY1MDQyIEMzNy4zODI0MjA4LDI0LjI2NjUwNDIgNDAuMTY3NjcwOCwyNy4wNTMzNzkyIDQwLjE2NzY3MDgsMzAuNDgyOTQxNyBDNDAuMTY3NjcwOCwzMy45MTU3NTQyIDM3LjM4MjQyMDgsMzYuNzAyNjI5MiAzMy45NTM2NzA4LDM2LjcwMjYyOTIgQzMwLjUxNTk4MzMsMzYuNzAyNjI5MiAyNy43MzMxNzA4LDMzLjkxNTc1NDIgMjcuNzMzMTcwOCwzMC40ODI5NDE3IEMyNy43MzMxNzA4LDI3LjA1MzM3OTIgMzAuNTE1OTgzMywyNC4yNjY1MDQyIDMzLjk1MzY3MDgsMjQuMjY2NTA0MiBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIGZpbGw9IiNGRkZGRkYiPjwvcGF0aD4KICAgIDwvZz4KPC9zdmc+"/></a></div></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+
+<!--section start -->
+
+<div class="grid-container grid-container--full-width   row-padding--default row-margin--default">
+<!--grid start -->
+
+<div class="grid-x grid-margin-x     ">
+<!--column start -->
+
+<div class="medium-12 cell     "><div data-widget="divider" class="divider component-margin--medium "><div class="divider--default"><hr></div></div><div data-widget="footer-disclaimer" class="footer-disclaimer component-margin--medium "><div class="text--p-xsmall footer-disclaimer__disclaimer"><p>Disclaimer: The information featured in this article is based on our best estimates of pricing, package details, contract stipulations, and service available at the time of writing. All information is subject to change. Pricing will vary based on various factors, including, but not limited to, the customer’s location, package chosen, added features and equipment, the purchaser’s credit score, etc. For the most accurate information, please ask your customer service representative. Clarify all fees and contract details before signing a contract or finalizing your purchase.</p><p>Our mission is to help consumers make informed purchase decisions. While we strive to keep our reviews as unbiased as possible, we do receive affiliate compensation through some of our links. This can affect which services appear on our site and where we rank them. Our affiliate compensation allows us to maintain an ad-free website and provide a free service to our readers. For more information, please see our <a href="/privacy-policy/" rel="noopener">Privacy Policy Page</a>.</p><p>© <a href="/">Business.org</a> 2020 All Rights Reserved.</p></div></div></div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div>
+<!--section end -->
+
+</div>
+<!--column end -->
+
+</div>
+<!--grid end -->
+
+</div></div>				</div>
+			</div>
+		</div>
+		</section>
+
+            <script type="text/javascript">
+                window.MAPI = window.MAPI || {};
+                window.MAPI.config = {"brand":"BORG","forceDomain":"business.org","replacement":".cl-phone","defaultPromoCode":"111697"};
+                var _mapi_plugin_data = {"mapiAjaxUrl":"https:\/\/www.business.org\/wp\/wp-admin\/admin-ajax.php","mapiDefaultPromo":"111697","mapiPostPromo":false,"nonces":{"mapi_hb":"9b114003b8"},"mapiBaseUrl":"https:\/\/m.clear.link"};
+                window.mapiAjaxUrl = _mapi_plugin_data.mapiAjaxUrl;
+                window.mapiDefaultPromo = _mapi_plugin_data.mapiDefaultPromo;
+                window.mapiPagePromo = _mapi_plugin_data.postPromo;
+                window.mapiNonces = _mapi_plugin_data.nonces;
+                window.mapiBaseUrl = _mapi_plugin_data.mapiBaseUrl;
+            </script>
+<div class="back-to-top-btn"><img alt="Icon Caret Up  Light" class="clwp-icon back-to-top-btn__caret-up-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQiIGhlaWdodD0iMTA0IiB2aWV3Qm94PSIwIDAgMTA0IDEwNCI+CiAgPHBvbHlnb24gZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjEyLjIyIC4xNjMgNTIgNDAuMjM3IDkxLjc4IC4xNjMgMTA0IDEyLjUgNTIgNjUgMCAxMi41IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTgwIDUyIDQxKSIvPgo8L3N2Zz4K" data-icon-hover="https://www.business.org/app/themes/coolwhip/assets/icons/icon-caret-up--light-hover.svg"/><div class="back-to-top-btn__text">Back To Top</div></div><script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js?ver=2.1.0'></script>
+<script type='text/javascript' src='https://www.business.org/app/themes/coolwhip-child/dist/js/main.js?ver=1605950798'></script>
+<script type='text/javascript' src='https://www.business.org/app/plugins/cl-gravity-forms/js/gravityforms.min.js?ver=2.4.12.6'></script>
+<script type='text/javascript' src='https://cdn.clear.link/mapi/latest/cl-phone.min.js?ver=2.0.0'></script>
+<script type='text/javascript' src='https://www.business.org/app/plugins/wpmapi/src/js/goLinks.min.js?ver=latest'></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"37b0d64e9e","applicationID":"112194064","transactionName":"NQNUNxEEVxcDUUReXQxJdwAXDFYKTUFZWVUOAw==","queueTime":0,"applicationTime":333,"atts":"GURXQVkeRBk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>
